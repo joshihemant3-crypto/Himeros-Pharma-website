@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erectile Dysfunction: A Marker for Heart Problems - Blog - Himeros Pharma</title>
+    <meta name="description" content="Dr. D. Narayana Reddy explains how Erectile Dysfunction serves as an early warning signal for cardiovascular disease and why treating it is a preventive health care strategy.">
+    <script src="https://cdn.tailwindcss.com?v=2"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#2563eb',600:'#1d4ed8',700:'#1e40af',800:'#1e3a8a',900:'#172554' },
+                        green: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d' }
+                    },
+                    fontFamily: { 'inter':['Inter','sans-serif'], 'playfair':['Playfair Display','serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; overflow-x:hidden; }
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#93c5fd; border-radius:4px; }
+        ::-webkit-scrollbar-thumb:hover { background:#2563eb; }
+        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#22c55e; transition:width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
+        .mobile-menu.open { transform:translateX(0); }
+        .footer-logo-wrap { display:inline-flex; padding:0.25rem 0.5rem; border-radius:0.75rem; background:transparent; }
+        .footer-logo-wrap img { filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+        .page-transition-overlay {
+            position:fixed; top:0; left:0; width:100%; height:100%;
+            z-index:9999; pointer-events:none; background:#ffffff; opacity:1;
+            animation:overlayFadeOut 0.4s ease 0.2s forwards;
+        }
+        @keyframes overlayFadeOut { from{opacity:1;} to{opacity:0;} }
+        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
+            animation:contentFadeIn 0.5s ease 0.3s both;
+        }
+        @keyframes contentFadeIn { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
+
+        /* Author card */
+        .author-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .author-photo {
+            width: 170px;
+            height: 210px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 0.75rem;
+            border: 3px solid #2563eb;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.18);
+        }
+
+        /* Story pull-quote */
+        .story-quote {
+            background: #f8fafc;
+            border-left: 4px solid #22c55e;
+            border-radius: 0 0.75rem 0.75rem 0;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        /* Key insight box */
+        .insight-box {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .insight-box .insight-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #86efac;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Vessel comparison */
+        .vessel-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .vessel-box {
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .vessel-box .diameter {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .vessel-box.penile { background: #eff6ff; border: 2px solid #93c5fd; }
+        .vessel-box.penile .diameter { color: #2563eb; }
+        .vessel-box.coronary { background: #fef2f2; border: 2px solid #fca5a5; }
+        .vessel-box.coronary .diameter { color: #dc2626; }
+
+        /* Risk factor tags */
+        .risk-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .risk-tag {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* Timeline stat */
+        .stat-highlight {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid #86efac;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .stat-highlight .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #15803d;
+            line-height: 1;
+        }
+
+        /* Guidelines list */
+        .guideline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .guideline-item:last-child { border-bottom: none; }
+        .guideline-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #2563eb, #22c55e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .section-heading {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            padding-top: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #bfdbfe;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .vessel-compare { grid-template-columns: 1fr; }
+            .author-photo { width: 140px; height: 175px; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
+    <div class="page-transition-overlay" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex items-center flex-shrink-0">
+                    <img src="https://z-cdn-media.chatglm.cn/files/1a3ab43b-4646-4d32-8425-01926c3bf57e.png?auth_key=1881243185-e88cca88e5ab46839f86ff477a1e81dd-0-f6d45976647f27bf983575b3a7a94c23" alt="Himeros Pharma Logo" class="h-16 lg:h-20 w-auto object-contain">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">About Us</a>
+                    <a href="segment.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Segment</a>
+                    <a href="products.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Products</a>
+                    <a href="blog.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Blog</a>
+                    <a href="books.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Books</a>
+                    <a href="gallery.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Gallery</a>
+                    <a href="career.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Career</a>
+                    <a href="contact.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Contact Us</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="menuToggle" onclick="document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden';" class="md:hidden p-2 text-gray-600 hover:text-brand-600 transition-colors">
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white z-50 shadow-2xl">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <img src="https://z-cdn-media.chatglm.cn/files/1a3ab43b-4646-4d32-8425-01926c3bf57e.png?auth_key=1881243185-e88cca88e5ab46839f86ff477a1e81dd-0-f6d45976647f27bf983575b3a7a94c23" alt="Himeros Pharma Logo" class="h-14 w-auto object-contain">
+                <button id="menuClose" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow='';" class="p-2 text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="flex flex-col gap-1">
+                <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Home</a>
+                <a href="about.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">About Us</a>
+                <a href="segment.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Segment</a>
+                <a href="products.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Products</a>
+                <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Blog</a>
+                <a href="books.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Books</a>
+                <a href="gallery.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Gallery</a>
+                <a href="career.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Career</a>
+                <a href="contact.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <div id="menuOverlay" onclick="document.getElementById('mobileMenu').classList.remove('open');this.classList.add('hidden');document.body.style.overflow='';" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+                <a href="index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                <a href="blog.html" class="hover:text-brand-600 transition-colors">Blog</a>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                <span class="text-gray-800 font-medium">Erectile Dysfunction: A Marker for Heart Problems</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+
+            <!-- Category & Date -->
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full">Cardiology &amp; Sexual Health</span>
+                <span class="text-xs text-gray-400">August 2026</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 leading-tight">
+                Erectile Dysfunction: A Marker for Heart Problems
+            </h1>
+
+            <!-- Author Card: Image Left, Bio Right -->
+            <div class="author-card flex flex-col md:flex-row gap-6 items-start mb-10">
+                <img
+                    src="items/dr-narayana-reddy.jpg"
+                    alt="Dr. D. Narayana Reddy"
+                    class="author-photo mx-auto md:mx-0"
+                >
+                <div class="flex-1">
+                    <div class="inline-block bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Expert Contributor</div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-1">Dr. D. Narayana Reddy</h2>
+                    <p class="text-brand-700 font-semibold text-sm mb-3">Consultant Sexologist &amp; Sexual Medicine Specialist</p>
+                    <div class="w-12 h-0.5 bg-brand-400 mb-3"></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Dr. D. Narayana Reddy is a distinguished expert in sexual medicine with decades of clinical experience in the diagnosis and management of erectile dysfunction, sexual disorders, and their intersection with systemic health conditions. His work has helped countless patients understand the deep connection between sexual health and overall wellbeing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Blog Body -->
+            <div class="prose max-w-none text-gray-600 leading-relaxed space-y-5">
+
+                <!-- Opening Story -->
+                <div class="story-quote">
+                    <p>Suman was browsing the internet in search of a Sexologist. His colleague caught him in the process and chided — <em>"Why do you waste your money and time on sex and sexologists? You already have 2 children. Why bother about sex? It is not important for health."</em></p>
+                </div>
+
+                <p class="font-semibold text-gray-800 text-lg">The friend is wrong.</p>
+
+                <p>Sex is important for health and management of sexual problems will improve the overall general health.</p>
+
+                <!-- Key Insight -->
+                <div class="insight-box">
+                    <div class="insight-title">Medical Research Has Now Established:</div>
+                    <p class="text-white text-lg font-semibold leading-relaxed">"Erectile Dysfunction (ED) is a marker for cardiovascular disease."</p>
+                    <p class="text-white/80 text-sm mt-2">In other words, Erectile Dysfunction is a signal indicating that the heart is getting into problems.</p>
+                </div>
+
+                <!-- The Link -->
+                <h2 class="section-heading">The Link Between the Penis and the Heart</h2>
+
+                <p>How is it possible? What is the link between the penis and heart? The link is the <strong>blood vessel</strong> and the <strong>endothelium</strong> lining it.</p>
+
+                <p>The network of blood vessels keeps all our organs functional by supplying them with nourishment and oxygen. These blood vessels are lined internally with endothelium — the seat of many chemical reactions which ultimately determine the amount of blood flowing through the arteries and thereby into the organs.</p>
+
+                <p>When this endothelium is damaged, it cannot relax and allow sufficient blood to flow through it. Not only that, the damaged endothelium is more prone to develop plaques and clots, thus narrowing the lumen of the blood vessels.</p>
+
+                <p>In effect, <strong>both the penis and the heart muscles will not receive sufficient blood</strong>. The effect of this insufficient blood supply will be first felt in the penis before the dysfunctional heart starts showing symptoms — and here is why:</p>
+
+                <!-- Vessel Comparison -->
+                <div class="vessel-compare">
+                    <div class="vessel-box penile">
+                        <div class="diameter">1–2 mm</div>
+                        <div class="text-sm font-semibold text-brand-700 mb-1">Penile Artery Diameter</div>
+                        <p class="text-xs text-gray-500">Smaller vessels — symptoms appear first here</p>
+                    </div>
+                    <div class="vessel-box coronary">
+                        <div class="diameter">3–4 mm</div>
+                        <div class="text-sm font-semibold text-red-700 mb-1">Coronary Artery Diameter</div>
+                        <p class="text-xs text-gray-500">Larger vessels — symptoms appear later</p>
+                    </div>
+                </div>
+
+                <p>Because the penile arteries are significantly smaller, the impact of endothelial damage and reduced blood flow manifests there first — giving us a critical early warning window.</p>
+
+                <!-- Risk Factors -->
+                <h2 class="section-heading">Shared Risk Factors</h2>
+                <p>The risk factors for both Erectile Dysfunction and heart disease are the same:</p>
+                <div class="risk-tags">
+                    <span class="risk-tag">🩸 Diabetes</span>
+                    <span class="risk-tag">💊 Hypertension</span>
+                    <span class="risk-tag">🚬 Smoking</span>
+                    <span class="risk-tag">🛋️ Sedentary Lifestyle</span>
+                    <span class="risk-tag">🧈 High Cholesterol</span>
+                    <span class="risk-tag">⚖️ Obesity</span>
+                    <span class="risk-tag">🧠 Depression</span>
+                </div>
+
+                <!-- Timeline Stat -->
+                <div class="stat-highlight">
+                    <div class="stat-number">1–7 Years</div>
+                    <p class="text-green-800 font-semibold mt-2">Average window between onset of ED and development of heart disease</p>
+                    <p class="text-gray-500 text-sm mt-1">Statistical evidence shows men with Erectile Dysfunction are prone to develop heart problems within this timeframe on average.</p>
+                </div>
+
+                <!-- Clinical Implication -->
+                <h2 class="section-heading">Clinical Implication: ED as a Predictor</h2>
+                <p>Based on these data, the medical fraternity now suggests that the <strong>cardiac status of every man who has Erectile Dysfunction be assessed</strong>.</p>
+
+                <p>Thus, organogenic Erectile Dysfunction (due to physical factors) can be considered to be a <strong>predictor for future heart problems</strong> even in an asymptomatic person.</p>
+
+                <div class="bg-green-50 border border-green-200 rounded-xl p-5 my-4">
+                    <p class="text-green-800 font-semibold text-base leading-relaxed">
+                        ✅ Treatment of sexual problems — especially Erectile Dysfunction — is not a waste of time and money. It is a <strong>preventive health care strategy</strong>.
+                    </p>
+                </div>
+
+                <!-- Guidelines -->
+                <h2 class="section-heading">Guidelines for Better Sexual &amp; Cardiovascular Health</h2>
+
+                <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-4 mt-4">
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span>Have a <strong>healthy lifestyle</strong> — balanced diet, regular routines, adequate rest.</span>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span><strong>Avoid smoking</strong> and consuming a high-fat diet.</span>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span>Do <strong>regular physical exercise</strong> to maintain cardiovascular fitness.</span>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span>Keep <strong>diabetes and blood pressure under control</strong>.</span>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span><strong>Don't hesitate to discuss</strong> with your doctor if you have a sexual problem.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Back to Blog -->
+            <div class="mt-12 pt-8 border-t border-gray-100">
+                <a href="blog.html" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-green-600 transition-colors"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1f3a] text-white">
+        <div class="max-w-7xl mx-auto px-4 pt-16 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="footer-logo-wrap mb-5">
+                        <img src="items/Hiimeros Pharma white logo.png" alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">Transforming pharmaceutical science into meaningful healthcare solutions.</p>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/himeros-pharma/posts/?feedView=all" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/himerospharma?igsi=MW01NDI5emR3YmduNQ%3D%3D&utm_source=qr" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@himerospharma-n6p?si=vOHvi_RKTuSbyd07" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">QUICK LINKS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Products</a></li>
+                        <li><a href="blog.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Blog</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="career.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Career</a></li>
+                        <li><a href="contact.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">SEGMENTS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="segment-andrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Andrology / Sexology</a></li>
+                        <li><a href="segment-nephrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Nephrology / Urology</a></li>
+                        <li><a href="segment-gynecology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">IVF / Gynecology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">CONTACT</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <span class="text-gray-300 text-sm">Himeros Pharma, India</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </span>
+                            <a href="mailto:info@himerospharma.com" class="text-gray-300 text-sm hover:text-green-400 transition-colors">info@himerospharma.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-400 text-sm">&copy; 2025 Himeros Pharma. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Crafted with care for healthcare professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-700 hover:shadow-xl z-50">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        function openMenu() { mobileMenu.classList.add('open'); menuOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { mobileMenu.classList.remove('open'); menuOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) navbar.classList.add('shadow-md');
+            else navbar.classList.remove('shadow-md');
+        });
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) { backToTop.style.opacity = '1'; backToTop.style.pointerEvents = 'auto'; }
+            else { backToTop.style.opacity = '0'; backToTop.style.pointerEvents = 'none'; }
+        });
+        backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        setTimeout(() => lucide.createIcons(), 200);
+
+        (function() {
+            if (document.documentElement.getAttribute("data-auth") === "in") {
+                var empId = sessionStorage.getItem("empName") || "EMP001";
+                var eid = document.getElementById("empNavId");
+                var meid = document.getElementById("mobileEmpId");
+                if (eid) eid.textContent = empId;
+                if (meid) meid.textContent = empId;
+            }
+            try {
+                var ddMenu = document.getElementById("empDropdownMenu");
+                document.addEventListener("click", function() { if (ddMenu) ddMenu.classList.add("hidden"); });
+            } catch(e) {}
+            try {
+                function doLogout() { sessionStorage.removeItem("loggedIn"); sessionStorage.removeItem("empName"); window.location.href = 'index.html'; }
+                var loBtn = document.getElementById("logoutBtn");
+                var mLoBtn = document.getElementById("mobileLogoutBtn");
+                if (loBtn) loBtn.addEventListener("click", doLogout);
+                if (mLoBtn) mLoBtn.addEventListener("click", doLogout);
+            } catch(e) {}
+        })();
+
+        (function () {
+            var overlay = document.getElementById('pageTransition');
+            window.addEventListener('pageshow', function() {
+                if (overlay) { overlay.style.animation = ''; overlay.style.transition = ''; overlay.style.opacity = ''; }
+            });
+            document.querySelectorAll('a[href$=".html"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    if (href.startsWith('http') && !href.includes(window.location.host)) return;
+                    e.preventDefault();
+                    if (overlay) {
+                        overlay.style.animation = 'none';
+                        void overlay.offsetHeight;
+                        overlay.style.transition = 'opacity 0.3s ease';
+                        overlay.style.opacity = '1';
+                        setTimeout(function() { window.location.href = href; }, 400);
+                    } else { window.location.href = href; }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

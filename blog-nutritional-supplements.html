@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritional Supplements and Sexual Dysfunctions - Blog - Himeros Pharma</title>
+    <meta name="description" content="Dr. G. Venkata Ramana explores the clinical evidence behind nutritional supplements and their role in sexual health, from L-arginine to Ashwagandha and beyond.">
+    <script src="https://cdn.tailwindcss.com?v=2"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#2563eb',600:'#1d4ed8',700:'#1e40af',800:'#1e3a8a',900:'#172554' },
+                        green: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d' }
+                    },
+                    fontFamily: { 'inter':['Inter','sans-serif'], 'playfair':['Playfair Display','serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; overflow-x:hidden; }
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#93c5fd; border-radius:4px; }
+        ::-webkit-scrollbar-thumb:hover { background:#2563eb; }
+        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#22c55e; transition:width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
+        .mobile-menu.open { transform:translateX(0); }
+        .footer-logo-wrap {
+            display: inline-flex;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.75rem;
+            background: transparent;
+        }
+        .footer-logo-wrap img {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+        }
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            background: #ffffff;
+            opacity: 1;
+            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+        }
+        @keyframes overlayFadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
+            animation: contentFadeIn 0.5s ease 0.3s both;
+        }
+        @keyframes contentFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Author card */
+        .author-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .author-photo {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            border: 3px solid #2563eb;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.18);
+        }
+        .supplement-card {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .supplement-card h3 {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .clinical-note {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: #1d4ed8;
+            font-style: italic;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .highlight-box h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #86efac;
+        }
+        .section-heading {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            padding-top: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #bfdbfe;
+            margin-bottom: 1rem;
+        }
+        .list-item-styled {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #374151;
+            line-height: 1.7;
+        }
+        .list-item-styled::before {
+            content: '•';
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .conclusion-box {
+            background: linear-gradient(135deg, #f0fdf4, #eff6ff);
+            border: 1px solid #86efac;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .five-questions {
+            counter-reset: question-counter;
+        }
+        .five-questions li {
+            counter-increment: question-counter;
+            padding: 0.75rem 0.75rem 0.75rem 3rem;
+            position: relative;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .five-questions li::before {
+            content: counter(question-counter);
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 2rem;
+            height: 2rem;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
+    <div class="page-transition-overlay" id="pageTransition"></div>
+
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex items-center flex-shrink-0">
+                    <img src="https://z-cdn-media.chatglm.cn/files/1a3ab43b-4646-4d32-8425-01926c3bf57e.png?auth_key=1881243185-e88cca88e5ab46839f86ff477a1e81dd-0-f6d45976647f27bf983575b3a7a94c23" alt="Himeros Pharma Logo" class="h-16 lg:h-20 w-auto object-contain">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">About Us</a>
+                    <a href="segment.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Segment</a>
+                    <a href="products.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Products</a>
+                    <a href="blog.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Blog</a>
+                    <a href="books.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Books</a>
+                    <a href="gallery.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Gallery</a>
+                    <a href="career.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Career</a>
+                    <a href="contact.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Contact Us</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="menuToggle" onclick="document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden';" class="md:hidden p-2 text-gray-600 hover:text-brand-600 transition-colors">
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white z-50 shadow-2xl">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <img src="https://z-cdn-media.chatglm.cn/files/1a3ab43b-4646-4d32-8425-01926c3bf57e.png?auth_key=1881243185-e88cca88e5ab46839f86ff477a1e81dd-0-f6d45976647f27bf983575b3a7a94c23" alt="Himeros Pharma Logo" class="h-14 w-auto object-contain">
+                <button id="menuClose" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow='';" class="p-2 text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="flex flex-col gap-1">
+                <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Home</a>
+                <a href="about.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">About Us</a>
+                <a href="segment.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Segment</a>
+                <a href="products.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Products</a>
+                <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Blog</a>
+                <a href="books.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Books</a>
+                <a href="gallery.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Gallery</a>
+                <a href="career.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Career</a>
+                <a href="contact.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <div id="menuOverlay" onclick="document.getElementById('mobileMenu').classList.remove('open');this.classList.add('hidden');document.body.style.overflow='';" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+                <a href="index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                <a href="blog.html" class="hover:text-brand-600 transition-colors">Blog</a>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                <span class="text-gray-800 font-medium">Nutritional Supplements and Sexual Dysfunctions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+
+            <!-- Category & Date -->
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Sexual Medicine</span>
+                <span class="text-xs text-gray-400">August 2026</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 leading-tight">
+                NUTRITIONAL SUPPLEMENTS AND SEXUAL DYSFUNCTIONS
+            </h1>
+
+            <!-- Author Card: Image Left, Bio Right -->
+            <div class="author-card flex flex-col md:flex-row gap-6 items-start mb-10">
+                <img
+                    src="items/dr-venkata-ramana.jpg"
+                    alt="Dr. G. Venkata Ramana"
+                    class="author-photo mx-auto md:mx-0"
+                    onerror="this.src='items/dr-venkata-ramana.png'"
+                >
+                <div class="flex-1">
+                    <div class="inline-block bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Expert Contributor</div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-1">DR. G. Venkata Ramana</h2>
+                    <p class="text-brand-700 font-semibold text-sm mb-1">M.B., B.S., M.D., D.V., D.P.C., Ph.D.</p>
+                    <p class="text-gray-600 text-sm font-medium mb-3">Rtd. Professor &amp; Head of Department, Osmania Medical College</p>
+                    <div class="w-12 h-0.5 bg-brand-400 mb-3"></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Prof. Dr. G. Venkata Ramana, retired Professor and Head of Department at Osmania Medical College, is a highly respected venereologist, dermatologist, HIV specialist, and sexologist, and the founder of the <strong>Vatsayana Clinic</strong>. His extensive academic and clinical background spans over <strong>forty years</strong> in sexual medicine and counseling across Hyderabad.
+                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed mt-2">
+                        His expertise provides an excellent real-world anchor for how clinical sexology incorporates holistic, evidence-based practices to improve patient health outcomes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Blog Body -->
+            <div class="prose max-w-none text-gray-600 leading-relaxed space-y-5">
+
+                <p>Sexual function is not controlled by a single hormone, vitamin, or "sexual booster." It is the result of a complex interaction between the brain, hormones, blood vessels, nerves, metabolic health, psychological well-being, medications, relationships and social environment.</p>
+
+                <p>Nutrition forms an important part of this biological foundation. A diet that is inadequate in essential nutrients—or the presence of a genuine nutritional deficiency—can adversely affect general health and may contribute to impaired sexual function. However, this does not mean that every person with sexual dysfunction needs supplements.</p>
+
+                <div class="highlight-box">
+                    <h3>The Important Clinical Question</h3>
+                    <p class="text-white/90 leading-relaxed">Are we correcting a nutritional deficiency, supporting an established physiological pathway, or simply responding to clever marketing?</p>
+                </div>
+
+                <!-- Section 1 -->
+                <h2 class="section-heading">The Nutrition–Sexual Health Connection</h2>
+                <p>Modern dietary patterns often provide abundant calories but may be relatively poor in dietary quality and micronutrient density. Diets dominated by ultra-processed foods, refined carbohydrates, unhealthy fats and excess calories can contribute to obesity, diabetes, dyslipidaemia, hypertension and cardiovascular disease—all conditions closely linked with sexual dysfunction.</p>
+                <p>Sexual function is particularly sensitive to vascular health. The endothelium and nitric oxide pathway are central to penile erection and also contribute to genital blood flow and arousal in women.</p>
+                <p>At the same time, psychological stress, poor sleep, sedentary behaviour and chronic disease can further influence libido and sexual performance.</p>
+                <p>Thus, nutrition should be considered as one component of comprehensive sexual healthcare—not as a replacement for diagnosis or established treatment.</p>
+
+                <!-- Section 2 -->
+                <h2 class="section-heading">Why Micronutrients Matter</h2>
+                <p>Several vitamins and minerals participate in processes relevant to sexual health, including:</p>
+                <ul class="space-y-1 my-3">
+                    <li class="list-item-styled">Hormone synthesis and metabolism</li>
+                    <li class="list-item-styled">Neurotransmitter production</li>
+                    <li class="list-item-styled">Energy metabolism</li>
+                    <li class="list-item-styled">Antioxidant defence</li>
+                    <li class="list-item-styled">Endothelial and vascular function</li>
+                    <li class="list-item-styled">Reproductive function</li>
+                </ul>
+                <p>But an important distinction must be made: <em>a nutrient can be essential for normal physiology without supplementation necessarily improving sexual function in someone who is already nutritionally sufficient.</em> This distinction is often lost in commercial advertising.</p>
+
+                <!-- Section 3 – Supplements -->
+                <h2 class="section-heading">Supplements Commonly Discussed in Sexual Medicine</h2>
+
+                <div class="supplement-card">
+                    <h3>1. L-Arginine and L-Citrulline: The Nitric Oxide Pathway</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">L-arginine is a substrate for nitric oxide synthesis, while L-citrulline can increase systemic arginine availability. Because nitric oxide-mediated vasodilation is fundamental to erectile physiology, these supplements have attracted considerable interest in erectile dysfunction. Some small clinical studies suggest potential benefit, particularly in men with mild erectile dysfunction. However, the evidence remains less robust than that supporting established treatments.</p>
+                    <div class="clinical-note">Clinical message: They may be considered as adjunctive nutritional interventions in selected patients, but should not be presented as substitutes for evidence-based ED treatment.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>2. Zinc: Correct the Deficiency, Not the Advertisement</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Zinc is essential for reproductive and endocrine physiology and is particularly important when deficiency is present. However, giving high-dose zinc to everyone with low libido or erectile dysfunction is not justified. Excessive zinc supplementation can produce adverse effects and, with prolonged high intake, can contribute to copper deficiency.</p>
+                    <div class="clinical-note">Clinical message: Assess dietary intake and clinical context; supplement when deficiency or increased requirement is reasonably suspected or demonstrated.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>3. Vitamin D: Important, but Not a Universal Sexual-Therapy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Vitamin D has important roles in bone, immune and metabolic health, and vitamin D deficiency has been associated with several chronic diseases. Observational studies have also reported associations between low vitamin D status and sexual dysfunction. However, association does not prove that vitamin D supplementation will improve sexual function.</p>
+                    <div class="clinical-note">Clinical message: Correct vitamin D deficiency for appropriate medical indications. Do not promise improvement in sexual function simply because the vitamin D level is low.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>4. Magnesium</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Magnesium is involved in hundreds of biochemical reactions, including energy metabolism and neuromuscular function. Its importance to general health is well established, but evidence that magnesium supplementation independently treats sexual dysfunction is limited.</p>
+                    <div class="clinical-note">Clinical message: Correct deficiency or inadequate intake rather than prescribing magnesium as a universal sexual-performance supplement.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>5. Panax Ginseng</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Panax ginseng has been investigated for erectile dysfunction and sexual function, with some studies suggesting a possible benefit. However, the quality and consistency of evidence vary, and interactions with medications are possible.</p>
+                    <div class="clinical-note">Clinical message: "Herbal" does not mean "risk-free."</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>6. Ashwagandha</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Ashwagandha (<em>Withania somnifera</em>) is widely promoted for stress, vitality, testosterone and sexual health. Some clinical studies suggest possible benefits for stress and selected aspects of sexual or reproductive health. However, the evidence is still evolving and should not be interpreted as proof that ashwagandha is a testosterone-restoring treatment for all patients.</p>
+                    <div class="clinical-note">Clinical message: Consider the individual patient, medication interactions and contraindications before recommending it.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>7. Maca</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Maca (<em>Lepidium meyenii</em>) has traditionally been used to enhance libido. Some clinical studies suggest a possible improvement in subjective sexual desire, including in certain patients with antidepressant-associated sexual dysfunction. However, the evidence remains limited.</p>
+                    <div class="clinical-note">Clinical message: Potential benefit is different from established efficacy.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>8. Saffron</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Saffron has attracted interest in sexual medicine, particularly in patients experiencing sexual dysfunction associated with antidepressant therapy. Some clinical studies have reported improvements in aspects of sexual function, but larger and better-designed studies are still needed before it can be regarded as a standard treatment.</p>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>9. Tribulus terrestris</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Tribulus is frequently marketed as a "natural testosterone booster." This claim deserves caution. Evidence for meaningful increases in testosterone and consistent improvement in sexual function is inconclusive.</p>
+                    <div class="clinical-note">Clinical message: Marketing claims should not be confused with clinical evidence.</div>
+                </div>
+
+                <div class="supplement-card">
+                    <h3>10. Other Supplements</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Ginkgo biloba, folate, vitamin B12, selenium and other nutritional or botanical products have been investigated in relation to sexual and reproductive health. Their roles vary considerably, and evidence is often limited or inconsistent.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mt-2">The appropriate question is not: <em>"Which supplement is best for sexual dysfunction?"</em> but: <em>"What is the cause of this patient's sexual dysfunction, and is there a nutritional factor that can be safely corrected?"</em></p>
+                </div>
+
+                <!-- Section 4 -->
+                <h2 class="section-heading">The Brain, Blood Vessels and Hormones</h2>
+                <p>A useful way to understand sexual function is to think of three major biological systems:</p>
+                <ul class="space-y-1 my-3">
+                    <li class="list-item-styled"><strong>The brain</strong> — desire, motivation, arousal and orgasm</li>
+                    <li class="list-item-styled"><strong>The blood vessels</strong> — genital blood flow and erectile/genital engorgement</li>
+                    <li class="list-item-styled"><strong>The hormones</strong> — modulation of libido, reproductive function and sexual response</li>
+                </ul>
+                <p>Nutrition contributes to all three, but it is only one part of the picture. This is particularly important because sexual dysfunction may be the first clinical clue to an underlying condition such as diabetes, obesity, cardiovascular disease, endocrine disorders, depression, anxiety or medication-related adverse effects.</p>
+                <p>Therefore, new-onset erectile dysfunction should not simply be treated with a supplement without considering cardiovascular and metabolic risk.</p>
+
+                <!-- Section 5 -->
+                <h2 class="section-heading">Food First, Supplement Second</h2>
+                <p>Perhaps the most important nutritional intervention in sexual medicine is not a capsule. It is a healthier lifestyle. A dietary pattern rich in:</p>
+                <ul class="space-y-1 my-3">
+                    <li class="list-item-styled">Vegetables and fruits</li>
+                    <li class="list-item-styled">Whole grains</li>
+                    <li class="list-item-styled">Legumes</li>
+                    <li class="list-item-styled">Nuts and seeds</li>
+                    <li class="list-item-styled">Adequate protein</li>
+                    <li class="list-item-styled">Healthy unsaturated fats</li>
+                    <li class="list-item-styled">Appropriate amounts of fish and other nutrient-dense foods</li>
+                </ul>
+                <p>Combined with regular physical activity, healthy weight management, adequate sleep, smoking cessation, moderation of alcohol, and stress management — this can improve overall metabolic and cardiovascular health: the foundation on which sexual health depends.</p>
+
+                <!-- Section 6 -->
+                <h2 class="section-heading">Supplements Are Not Automatically Safe</h2>
+                <p>One of the biggest misconceptions is: <em>"Natural means safe."</em> It does not. Supplements may have:</p>
+                <ul class="space-y-1 my-3">
+                    <li class="list-item-styled">Drug interactions</li>
+                    <li class="list-item-styled">Variable concentrations of active ingredients</li>
+                    <li class="list-item-styled">Contamination or adulteration</li>
+                    <li class="list-item-styled">Gastrointestinal or other adverse effects</li>
+                    <li class="list-item-styled">Contraindications in specific medical conditions</li>
+                    <li class="list-item-styled">Risks associated with excessive dosing</li>
+                </ul>
+                <p>Products marketed for sexual performance deserve particular caution because some may contain undeclared pharmacologically active substances. Patients should therefore disclose all supplements, herbal products and over-the-counter preparations to their healthcare professionals.</p>
+
+                <!-- Section 7 -->
+                <h2 class="section-heading">The Sexologist's Role</h2>
+                <p>A comprehensive sexual-health consultation should explore:</p>
+                <p class="bg-gray-50 rounded-lg p-4 text-gray-700 italic my-3">Sexual symptoms → medical conditions → medications → psychological factors → relationship factors → lifestyle → nutrition → relevant laboratory evaluation → individualized treatment.</p>
+                <p>Nutrition should therefore be integrated into sexual medicine without turning sexology into a supplement-prescribing exercise. The goal is not to find a "natural Viagra." The goal is to identify and correct modifiable biological, psychological and relational contributors to sexual dysfunction.</p>
+
+                <!-- Section 8 – 5 Questions -->
+                <h2 class="section-heading">A Practical Clinical Principle</h2>
+                <p>Before recommending a supplement, ask five questions:</p>
+                <ol class="five-questions mt-4">
+                    <li>What is the diagnosis?</li>
+                    <li>Is there evidence of a nutritional deficiency or inadequate intake?</li>
+                    <li>What evidence supports this particular supplement for this particular sexual problem?</li>
+                    <li>Could it interact with the patient's medications or medical conditions?</li>
+                    <li>Will it complement—or unnecessarily delay—evidence-based treatment?</li>
+                </ol>
+
+                <!-- Conclusion -->
+                <div class="conclusion-box mt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Conclusion</h2>
+                    <p class="text-gray-700 leading-relaxed mb-3">Sexual health is ultimately a reflection of the whole person—not a single molecule or supplement. Nutrition can support vascular, metabolic, neurological and endocrine health, and correcting genuine nutritional deficiencies is important. However, supplementation should complement, not replace, proper diagnosis and evidence-based treatment.</p>
+                    <p class="text-gray-700 leading-relaxed mb-3">The future of sexual medicine is unlikely to be about choosing between "food" and "medicine." It is about bringing them together intelligently.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-5">
+                        <div class="bg-white rounded-lg p-4 text-center shadow-sm">
+                            <div class="text-brand-600 font-bold text-lg mb-1">🍎 Food</div>
+                            <p class="text-gray-600 text-sm">provides the foundation</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center shadow-sm">
+                            <div class="text-brand-600 font-bold text-lg mb-1">💊 Medicine</div>
+                            <p class="text-gray-600 text-sm">treats disease</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center shadow-sm">
+                            <div class="text-brand-600 font-bold text-lg mb-1">🏃 Lifestyle</div>
+                            <p class="text-gray-600 text-sm">protects function</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-2">And good sexology brings the whole person into the consultation.</p>
+                    <p class="text-gray-700 italic border-l-4 border-brand-400 pl-4 mt-4">
+                        "Let food be thy medicine, and medicine be thy food."<br>
+                        <span class="text-sm font-semibold text-brand-700 not-italic block mt-2">— And in modern sexual medicine, perhaps one additional line:<br>"Let evidence decide when a supplement belongs on the prescription."</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Back to Blog -->
+            <div class="mt-12 pt-8 border-t border-gray-100">
+                <a href="blog.html" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-green-600 transition-colors"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1f3a] text-white">
+        <div class="max-w-7xl mx-auto px-4 pt-16 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="footer-logo-wrap mb-5">
+                        <img src="items/Hiimeros Pharma white logo.png" alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">Transforming pharmaceutical science into meaningful healthcare solutions.</p>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/himeros-pharma/posts/?feedView=all" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/himerospharma?igsi=MW01NDI5emR3YmduNQ%3D%3D&utm_source=qr" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@himerospharma-n6p?si=vOHvi_RKTuSbyd07" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">QUICK LINKS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Products</a></li>
+                        <li><a href="blog.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Blog</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="career.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Career</a></li>
+                        <li><a href="contact.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">SEGMENTS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="segment-andrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Andrology / Sexology</a></li>
+                        <li><a href="segment-nephrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Nephrology / Urology</a></li>
+                        <li><a href="segment-gynecology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">IVF / Gynecology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">CONTACT</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <span class="text-gray-300 text-sm">Himeros Pharma, India</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </span>
+                            <a href="mailto:info@himerospharma.com" class="text-gray-300 text-sm hover:text-green-400 transition-colors">info@himerospharma.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-400 text-sm">&copy; 2025 Himeros Pharma. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Crafted with care for healthcare professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-700 hover:shadow-xl z-50">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        function openMenu() { mobileMenu.classList.add('open'); menuOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { mobileMenu.classList.remove('open'); menuOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) navbar.classList.add('shadow-md');
+            else navbar.classList.remove('shadow-md');
+        });
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) { backToTop.style.opacity = '1'; backToTop.style.pointerEvents = 'auto'; }
+            else { backToTop.style.opacity = '0'; backToTop.style.pointerEvents = 'none'; }
+        });
+        backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        setTimeout(() => lucide.createIcons(), 200);
+
+        // Auth state management
+        (function() {
+            if (document.documentElement.getAttribute("data-auth") === "in") {
+                var empId = sessionStorage.getItem("empName") || "EMP001";
+                var eid = document.getElementById("empNavId");
+                var meid = document.getElementById("mobileEmpId");
+                if (eid) eid.textContent = empId;
+                if (meid) meid.textContent = empId;
+            }
+            try {
+                var ddMenu = document.getElementById("empDropdownMenu");
+                document.addEventListener("click", function() { if (ddMenu) ddMenu.classList.add("hidden"); });
+            } catch(e) {}
+            try {
+                function doLogout() { sessionStorage.removeItem("loggedIn"); sessionStorage.removeItem("empName"); window.location.href = 'index.html'; }
+                var loBtn = document.getElementById("logoutBtn");
+                var mLoBtn = document.getElementById("mobileLogoutBtn");
+                if (loBtn) loBtn.addEventListener("click", doLogout);
+                if (mLoBtn) mLoBtn.addEventListener("click", doLogout);
+            } catch(e) {}
+        })();
+
+        // Page Transition
+        (function () {
+            var overlay = document.getElementById('pageTransition');
+            window.addEventListener('pageshow', function() {
+                if (overlay) { overlay.style.animation = ''; overlay.style.transition = ''; overlay.style.opacity = ''; }
+            });
+            document.querySelectorAll('a[href$=".html"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    if (href.startsWith('http') && !href.includes(window.location.host)) return;
+                    e.preventDefault();
+                    if (overlay) {
+                        overlay.style.animation = 'none';
+                        void overlay.offsetHeight;
+                        overlay.style.transition = 'opacity 0.3s ease';
+                        overlay.style.opacity = '1';
+                        setTimeout(function() { window.location.href = href; }, 400);
+                    } else { window.location.href = href; }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
