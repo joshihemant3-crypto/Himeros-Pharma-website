@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books - Himeros Pharma</title>
-    <meta name="description" content="Explore clinical reference books on Sexual Medicine and Sex Therapy published by Tulika Collections, a Himeros Pharma initiative.">
+    <title>Books & Clinical Publications - Himeros Pharma</title>
+    <meta name="description" content="Explore clinical reference books, guides, and manuals on Sexual Medicine and Sex Therapy published by Tulika Collections, a Himeros Pharma initiative.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -32,25 +32,41 @@
         .mobile-menu.open{transform:translateX(0)}
         .page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;background:#ffffff;opacity:1;animation:overlayFadeOut 0.4s ease 0.2s forwards}
         @keyframes overlayFadeOut{from{opacity:1}to{opacity:0}}
-        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay){animation:contentFadeIn 0.5s ease 0.3s both}
+        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay):not(#bookModal){animation:contentFadeIn 0.5s ease 0.3s both}
         @keyframes contentFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+        
         .hero-bg{background:linear-gradient(135deg,#172554 0%,#1e3a8a 50%,#14532d 100%);position:relative;overflow:hidden}
         .hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-        .book-card{transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer}
-        .book-card:hover{transform:translateY(-12px);box-shadow:0 32px 64px rgba(37,99,235,0.18)}
-        .book-card:hover .book-img{transform:scale(1.04) rotate(1deg)}
-        .book-img{transition:transform 0.5s ease}
-        .badge{display:inline-block;padding:0.3rem 0.9rem;border-radius:9999px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em}
-        .btn-buy{background:linear-gradient(135deg,#1d4ed8,#16a34a);color:white;padding:0.85rem 2rem;border-radius:9999px;font-weight:700;font-size:0.95rem;display:inline-flex;align-items:center;gap:0.6rem;transition:all 0.3s ease;text-decoration:none}
-        .btn-buy:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.4)}
-        .btn-details{border:2px solid #1d4ed8;color:#1d4ed8;padding:0.8rem 1.8rem;border-radius:9999px;font-weight:600;font-size:0.9rem;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease;text-decoration:none}
-        .btn-details:hover{background:#eff6ff}
+        
+        /* 3D Book Cover Styles */
+        .book-card{transition:all 0.35s cubic-bezier(0.16, 1, 0.3, 1);}
+        .book-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px -15px rgba(29, 78, 216, 0.15);}
+        .book-cover-container{perspective:1000px;position:relative;}
+        .book-3d-img{
+            transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            box-shadow: 6px 10px 25px rgba(0,0,0,0.22), -2px 0 8px rgba(0,0,0,0.1);
+            border-radius: 4px 10px 10px 4px;
+            border-left: 3px solid rgba(255,255,255,0.4);
+        }
+        .book-card:hover .book-3d-img{
+            transform: rotateY(-8deg) rotateX(4deg) scale(1.04);
+            box-shadow: 12px 18px 32px rgba(0,0,0,0.3), -3px 0 12px rgba(0,0,0,0.15);
+        }
+        
+        .badge{display:inline-block;padding:0.25rem 0.75rem;border-radius:9999px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+        
+        /* Filter Button Active State */
+        .filter-btn{transition:all 0.25s ease;}
+        .filter-btn.active{background-color:#1d4ed8;color:#ffffff;box-shadow:0 4px 12px rgba(29, 78, 216, 0.25);}
+        
         .stat-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;padding:1.25rem;text-align:center}
-        .shimmer{background:linear-gradient(90deg,#f0f4ff 25%,#e0ecff 50%,#f0f4ff 75%);background-size:200% 100%;animation:shimmer 2s infinite}
-        @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+        
+        /* Modal Styles */
+        .modal-overlay{transition:opacity 0.3s ease;}
+        .modal-container{transition:transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;}
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
     <div class="page-transition-overlay" id="pageTransition"></div>
 
@@ -69,9 +85,8 @@
                     <a href="blog.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Blog</a>
                     <a href="books.html" class="nav-link relative text-sm font-medium text-brand-600 transition-colors">Books</a>
                     <a href="gallery.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Gallery</a>
-                    
                     <a href="career.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Career</a>
-<a href="contact.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Contact Us</a>
+                    <a href="contact.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Contact Us</a>
                 </div>
                 <div class="flex items-center gap-3">
                     <button id="menuToggle" class="md:hidden p-2 text-gray-600 hover:text-brand-600 transition-colors">
@@ -99,187 +114,209 @@
                 <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Blog</a>
                 <a href="books.html" class="mobile-nav-link px-4 py-3 text-brand-600 bg-brand-50 rounded-lg font-medium">Books</a>
                 <a href="gallery.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Gallery</a>
-                
                 <a href="career.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Career</a>
-<a href="contact.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Contact Us</a>
+                <a href="contact.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Contact Us</a>
             </div>
         </div>
     </div>
     <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
     <!-- Hero -->
-    <section class="hero-bg text-white py-20 lg:py-28">
+    <section class="hero-bg text-white py-16 lg:py-24">
         <div class="absolute w-96 h-96 rounded-full bg-white/5 blur-3xl top-0 left-0 pointer-events-none"></div>
         <div class="absolute w-80 h-80 rounded-full bg-green-400/10 blur-3xl bottom-0 right-0 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
             <div class="inline-flex items-center gap-2 mb-6 bg-white/15 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
                 <i data-lucide="book-open" class="w-4 h-4 text-green-400"></i>
-                <span class="text-sm font-semibold text-green-300 uppercase tracking-widest">Publications</span>
+                <span class="text-xs font-bold text-green-300 uppercase tracking-widest">Medical Publications & Manuals</span>
             </div>
             <h1 class="text-3xl lg:text-5xl font-bold mb-6 leading-tight uppercase tracking-tight">
-                Clinical Books Supported by <span style="color:#4ade80;">Himeros Pharma</span>
+                Clinical Books Supported by <span class="text-green-400">Himeros Pharma</span>
             </h1>
-            <p class="text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-14">
-                Tulika Collections, a Himeros Pharma initiative, publishes comprehensive clinical reference books and guides focused on Sexual Medicine and Sex Therapy to support healthcare professionals.
+            <p class="text-base lg:text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed mb-12">
+                Tulika Collections, a Himeros Pharma initiative, publishes authoritative clinical reference books, diagnostic guides, and therapy manuals for healthcare professionals and clinical practitioners.
             </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                <div class="stat-card"><div class="text-3xl font-bold text-green-400 mb-1">2</div><div class="text-blue-200 text-sm">Publications</div></div>
-                <div class="stat-card"><div class="text-3xl font-bold text-green-400 mb-1">2nd</div><div class="text-blue-200 text-sm">Edition Available</div></div>
-                <div class="stat-card"><div class="text-3xl font-bold text-green-400 mb-1">100%</div><div class="text-blue-200 text-sm">Clinician Focused</div></div>
-                <div class="stat-card"><div class="text-3xl font-bold text-green-400 mb-1">★4.8</div><div class="text-blue-200 text-sm">Amazon Rating</div></div>
+            
+            <!-- Corrected Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="stat-card">
+                    <div class="text-3xl lg:text-4xl font-bold text-green-400 mb-1">5</div>
+                    <div class="text-blue-100 text-xs md:text-sm font-medium">Published Books</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl lg:text-4xl font-bold text-green-400 mb-1">2nd</div>
+                    <div class="text-blue-100 text-xs md:text-sm font-medium">Edition Reference</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl lg:text-4xl font-bold text-green-400 mb-1">40+</div>
+                    <div class="text-blue-100 text-xs md:text-sm font-medium">Clinical Case Studies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl lg:text-4xl font-bold text-green-400 mb-1">★4.8</div>
+                    <div class="text-blue-100 text-xs md:text-sm font-medium">Clinician Rating</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Books Grid -->
-    <section class="py-20 lg:py-28 bg-gray-50">
+    <!-- Books Library Section -->
+    <section class="py-16 lg:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest rounded-full mb-4">Our Library</span>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">Featured Publications</h2>
+            
+            <!-- Header & Filter Tabs -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block px-4 py-1.5 bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest rounded-full mb-3">Our Library</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Featured Medical Publications</h2>
+                
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3" id="filterContainer">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-brand-500 shadow-sm" data-filter="all">All Books (5)</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-brand-500 shadow-sm" data-filter="clinical">Clinical Reference</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-brand-500 shadow-sm" data-filter="therapy">Sex Therapy & Manuals</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-brand-500 shadow-sm" data-filter="couples">Couple & Relationships</button>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <!-- Single Responsive Grid for 5 Books -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" id="booksGrid">
 
                 <!-- Book 1: Handbook of Sexual Medicine -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
-                        <img src="items/sexual medicine.png" alt="Handbook of Sexual Medicine" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10">
-                        <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">2nd Edition</div>
+                <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="clinical">
+                    <div class="bg-gradient-to-br from-slate-900 via-brand-900 to-blue-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
+                        <div class="absolute inset-0 bg-radial from-brand-500/10 to-transparent"></div>
+                        <img src="items/sexual medicine.png" alt="Handbook of Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-amber-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">2nd Edition</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
+                    <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="badge bg-brand-100 text-brand-700">Sexual Medicine</span>
-                            <span class="badge bg-green-100 text-green-700">Clinical Reference</span>
+                            <span class="badge bg-emerald-100 text-emerald-800">Clinical Reference</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Handbook of Sexual Medicine</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Second Edition</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Handbook of Sexual Medicine is a comprehensive clinical reference covering the fundamentals of human sexual physiology and the complexities of sexual pathology. It explores sexual response in men and women, male and female sexual dysfunctions, and conditions such as hypoactive sexual desire disorder, erectile dysfunction, premature and delayed ejaculation, dyspareunia, vaginismus, and other sexual concerns. The book also examines the psychological, biological, relationship and situational factors contributing to sexual dysfunction. With its structured approach to understanding sexual function and dysfunction, it serves as a valuable resource for understanding and addressing diverse sexual health concerns.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1 leading-snug">Handbook of Sexual Medicine</h3>
+                        <p class="text-xs font-medium text-gray-400 mb-3">By Tulika Collections · Second Edition</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                            Handbook of Sexual Medicine is a comprehensive clinical reference covering human sexual physiology and the complexities of sexual pathology. It explores sexual response, dysfunctions, HSDD, erectile dysfunction, premature ejaculation, and vaginismus.
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <button class="btn-open-modal flex-1 py-2.5 px-4 bg-brand-50 text-brand-700 hover:bg-brand-600 hover:text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2" data-book="book-1">
+                                <i data-lucide="eye" class="w-4 h-4"></i> View Details
+                            </button>
+                            <a href="product-enquiry.html?subject=Book+Inquiry+-+Handbook+of+Sexual+Medicine" class="py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="mail" class="w-4 h-4"></i> Inquire
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Book 2: Sex Therapy: A Clinician's Guide -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-green-900 via-green-800 to-green-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
-                        <img src="items/sex tharapy.png" alt="Sex Therapy - A Clinician's Guide" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10">
-                        <div class="absolute top-4 right-4 bg-emerald-400 text-emerald-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">1st Edition</div>
+                <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="therapy">
+                    <div class="bg-gradient-to-br from-emerald-950 via-green-900 to-teal-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
+                        <div class="absolute inset-0 bg-radial from-emerald-500/10 to-transparent"></div>
+                        <img src="items/sex tharapy.png" alt="Sex Therapy - A Clinician's Guide" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <div class="absolute top-4 right-4 bg-emerald-400 text-emerald-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">1st Edition</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
+                    <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-green-100 text-green-700">Sex Therapy</span>
-                            <span class="badge bg-purple-100 text-purple-700">Clinician's Guide</span>
+                            <span class="badge bg-emerald-100 text-emerald-800">Sex Therapy</span>
+                            <span class="badge bg-purple-100 text-purple-800">Clinician's Guide</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Sex Therapy: A Clinician's Guide</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · First Edition</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Sex Therapy: A Clinician's Guide serves as a practical, structured resource for practitioners navigating sexual health interventions. Beginning with foundational concepts and clinical practice guidelines—including techniques like sensate focus—the book systematically addresses specific male and female sexual dysfunctions, such as erectile dysfunction, premature ejaculation, vaginismus, and arousal disorders. Beyond symptom management, it provides valuable guidance on navigating therapy obstacles, handling termination, assessing treatment outcomes, and maintaining ethical standards in practice. Designed as an actionable manual, it offers clinicians a comprehensive roadmap to guide patients toward improved sexual wellness and therapeutic success.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1 leading-snug">Sex Therapy: A Clinician's Guide</h3>
+                        <p class="text-xs font-medium text-gray-400 mb-3">By Tulika Collections · First Edition</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                            A practical, structured resource for practitioners navigating sexual health interventions. Includes sensate focus techniques, systematic protocols for male & female dysfunctions, obstacle navigation, and ethical guidelines.
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <button class="btn-open-modal flex-1 py-2.5 px-4 bg-brand-50 text-brand-700 hover:bg-brand-600 hover:text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2" data-book="book-2">
+                                <i data-lucide="eye" class="w-4 h-4"></i> View Details
+                            </button>
+                            <a href="product-enquiry.html?subject=Book+Inquiry+-+Sex+Therapy+Clinicians+Guide" class="py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="mail" class="w-4 h-4"></i> Inquire
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Book 3: Making Sense -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
-                        <img src="items/making sense.jpeg" alt="Making Sense" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10 rounded-lg">
+                <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="couples">
+                    <div class="bg-gradient-to-br from-blue-950 via-indigo-900 to-slate-900 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
+                        <div class="absolute inset-0 bg-radial from-blue-500/10 to-transparent"></div>
+                        <img src="items/making sense.jpeg" alt="Making Sense" class="book-3d-img h-48 w-auto object-contain relative z-10 rounded">
+                        <div class="absolute top-4 right-4 bg-sky-400 text-sky-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">Popular Guide</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
+                    <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-blue-100 text-blue-700">Relationships</span>
-                            <span class="badge bg-yellow-100 text-yellow-700">Practical Guide</span>
+                            <span class="badge bg-blue-100 text-blue-800">Relationships</span>
+                            <span class="badge bg-amber-100 text-amber-800">Practical Guide</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Making Sense</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Relationship Guide</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Making Sense is a thoughtful and practical guide that addresses the questions, doubts, and everyday dilemmas couples may face before and during the early stages of marriage. It explores topics around the body, intimacy, sexual expectations, communication, relationships, and the realities of adjusting to life with a partner. By bringing often-unspoken concerns into an open and approachable conversation, the book helps couples understand themselves and each other better. Making Sense encourages awareness, empathy, and honest communication—helping couples move beyond myths and confusion towards a healthier, more comfortable, and fulfilling relationship.</p>
-                    </div>
-                </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-                <!-- Book 1: Handbook of Sexual Medicine -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
-                        <img src="items/sexual medicine.png" alt="Handbook of Sexual Medicine" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10">
-                        <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">2nd Edition</div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-brand-100 text-brand-700">Sexual Medicine</span>
-                            <span class="badge bg-green-100 text-green-700">Clinical Reference</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1 leading-snug">Making Sense</h3>
+                        <p class="text-xs font-medium text-gray-400 mb-3">By Tulika Collections · Relationship Guide</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                            A thoughtful and practical guide addressing questions, doubts, and everyday dilemmas couples face before and during early marriage. Explores body awareness, intimacy, sexual expectations, and open communication.
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <button class="btn-open-modal flex-1 py-2.5 px-4 bg-brand-50 text-brand-700 hover:bg-brand-600 hover:text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2" data-book="book-3">
+                                <i data-lucide="eye" class="w-4 h-4"></i> View Details
+                            </button>
+                            <a href="product-enquiry.html?subject=Book+Inquiry+-+Making+Sense" class="py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="mail" class="w-4 h-4"></i> Inquire
+                            </a>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Handbook of Sexual Medicine</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Second Edition</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Handbook of Sexual Medicine is a comprehensive clinical reference covering the fundamentals of human sexual physiology and the complexities of sexual pathology. It explores sexual response in men and women, male and female sexual dysfunctions, and conditions such as hypoactive sexual desire disorder, erectile dysfunction, premature and delayed ejaculation, dyspareunia, vaginismus, and other sexual concerns. The book also examines the psychological, biological, relationship and situational factors contributing to sexual dysfunction. With its structured approach to understanding sexual function and dysfunction, it serves as a valuable resource for understanding and addressing diverse sexual health concerns.</p>
-                    </div>
-                </div>
-
-                <!-- Book 2: Sex Therapy: A Clinician's Guide -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-green-900 via-green-800 to-green-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
-                        <img src="items/sex tharapy.png" alt="Sex Therapy - A Clinician's Guide" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10">
-                        <div class="absolute top-4 right-4 bg-emerald-400 text-emerald-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">1st Edition</div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-green-100 text-green-700">Sex Therapy</span>
-                            <span class="badge bg-purple-100 text-purple-700">Clinician's Guide</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Sex Therapy: A Clinician's Guide</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · First Edition</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Sex Therapy: A Clinician's Guide serves as a practical, structured resource for practitioners navigating sexual health interventions. Beginning with foundational concepts and clinical practice guidelines—including techniques like sensate focus—the book systematically addresses specific male and female sexual dysfunctions, such as erectile dysfunction, premature ejaculation, vaginismus, and arousal disorders. Beyond symptom management, it provides valuable guidance on navigating therapy obstacles, handling termination, assessing treatment outcomes, and maintaining ethical standards in practice. Designed as an actionable manual, it offers clinicians a comprehensive roadmap to guide patients toward improved sexual wellness and therapeutic success.</p>
-                    </div>
-                </div>
-
-                <!-- Book 3: Making Sense -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
-                        <img src="items/making sense.jpeg" alt="Making Sense" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10 rounded-lg">
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-blue-100 text-blue-700">Relationships</span>
-                            <span class="badge bg-yellow-100 text-yellow-700">Practical Guide</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Making Sense</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Relationship Guide</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Making Sense is a thoughtful and practical guide that addresses the questions, doubts, and everyday dilemmas couples may face before and during the early stages of marriage. It explores topics around the body, intimacy, sexual expectations, communication, relationships, and the realities of adjusting to life with a partner. By bringing often-unspoken concerns into an open and approachable conversation, the book helps couples understand themselves and each other better. Making Sense encourages awareness, empathy, and honest communication—helping couples move beyond myths and confusion towards a healthier, more comfortable, and fulfilling relationship.</p>
                     </div>
                 </div>
 
                 <!-- Book 4: Sexual Facets of Medical Practice -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/60 to-transparent"></div>
-                        <img src="items/Sexual Facets of Medical Practice.jpeg" alt="Sexual Facets of Medical Practice" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10 rounded-lg">
+                <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="clinical">
+                    <div class="bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
+                        <div class="absolute inset-0 bg-radial from-purple-500/10 to-transparent"></div>
+                        <img src="items/Sexual Facets of Medical Practice.jpeg" alt="Sexual Facets of Medical Practice" class="book-3d-img h-48 w-auto object-contain relative z-10 rounded">
+                        <div class="absolute top-4 right-4 bg-indigo-400 text-indigo-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">Must Read</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
+                    <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-indigo-100 text-indigo-700">Medical Reference</span>
-                            <span class="badge bg-green-100 text-green-700">Must Read</span>
+                            <span class="badge bg-indigo-100 text-indigo-800">Medical Reference</span>
+                            <span class="badge bg-emerald-100 text-emerald-800">Clinical Specialty</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Sexual Facets of Medical Practice</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Medical Reference</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Sexual Facets of Medical Practice is a comprehensive medical reference that explores the relationship between sexual health and a wide range of medical conditions. The book examines sexual dysfunction across cardiovascular, respiratory, neurological, urological, gynecological, endocrine, psychiatric, dermatological and other conditions, while also addressing sexuality in ageing, cancer, diabetes, fertility, sexually transmitted infections and treatment-related sexual dysfunction. By bringing sexuality into the broader context of clinical medicine, the book highlights the importance of recognising, understanding and appropriately addressing sexual health concerns as an integral part of patient care. Highly recommended must read for all the practitioners dealing with sexual health and illness for a better understanding.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1 leading-snug">Sexual Facets of Medical Practice</h3>
+                        <p class="text-xs font-medium text-gray-400 mb-3">By Tulika Collections · Medical Reference</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                            Examines sexual health across cardiovascular, respiratory, neurological, urological, gynecological, endocrine, and psychiatric conditions. An essential multi-specialty reference for general medicine practitioners.
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <button class="btn-open-modal flex-1 py-2.5 px-4 bg-brand-50 text-brand-700 hover:bg-brand-600 hover:text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2" data-book="book-4">
+                                <i data-lucide="eye" class="w-4 h-4"></i> View Details
+                            </button>
+                            <a href="product-enquiry.html?subject=Book+Inquiry+-+Sexual+Facets+of+Medical+Practice" class="py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="mail" class="w-4 h-4"></i> Inquire
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Book 5: Clinical Methods in Sexual Medicine -->
-                <div class="book-card bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden group flex flex-col">
-                    <div class="bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 p-8 flex items-center justify-center h-72 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/60 to-transparent"></div>
-                        <img src="items/clinical methods in sexual medicine.jpeg" alt="Clinical Methods in Sexual Medicine" class="book-img h-52 w-auto object-contain drop-shadow-2xl relative z-10 rounded-lg">
+                <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="therapy">
+                    <div class="bg-gradient-to-br from-teal-950 via-emerald-900 to-slate-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
+                        <div class="absolute inset-0 bg-radial from-teal-500/10 to-transparent"></div>
+                        <img src="items/clinical methods in sexual medicine.jpeg" alt="Clinical Methods in Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10 rounded">
+                        <div class="absolute top-4 right-4 bg-teal-300 text-teal-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">40 Case Scenarios</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
+                    <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-emerald-100 text-emerald-700">Clinical Manual</span>
-                            <span class="badge bg-brand-100 text-brand-700">Practical Guide</span>
+                            <span class="badge bg-teal-100 text-teal-800">Clinical Manual</span>
+                            <span class="badge bg-brand-100 text-brand-800">Practical Guide</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">Clinical Methods in Sexual Medicine</h3>
-                        <p class="text-xs text-gray-400 mb-4">By Tulika Collections · Clinical Manual</p>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-1">Bridging the gap between theoretical knowledge and clinical practice, Clinical Methods in Sexual Medicine is the first comprehensive manual dedicated to the practical art of the Sexual Health consultation. Designed for both seasoned practitioners and clinicians-in-training, this text provides a structured, evidence-based roadmap for navigating the complexities of Sexual Dysfunctions with professional precision and empathy. A distinctive feature of this volume is the inclusion of 40 carefully curated case scenarios. These curated cases provide a diverse range of clinical presentations, offering readers a “virtual clinic” experience to sharpen their diagnostic acumen and refine their patient management strategies. A definitive resource for the modern clinician, this manual transforms the way Sexual Medicine is taught and practiced.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1 leading-snug">Clinical Methods in Sexual Medicine</h3>
+                        <p class="text-xs font-medium text-gray-400 mb-3">By Tulika Collections · Clinical Manual</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                            A practical manual dedicated to the art of sexual health consultation. Includes 40 carefully curated real-world case scenarios providing a virtual clinic experience for clinicians and trainees.
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <button class="btn-open-modal flex-1 py-2.5 px-4 bg-brand-50 text-brand-700 hover:bg-brand-600 hover:text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2" data-book="book-5">
+                                <i data-lucide="eye" class="w-4 h-4"></i> View Details
+                            </button>
+                            <a href="product-enquiry.html?subject=Book+Inquiry+-+Clinical+Methods+in+Sexual+Medicine" class="py-2.5 px-4 bg-gray-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="mail" class="w-4 h-4"></i> Inquire
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -287,46 +324,52 @@
         </div>
     </section>
 
-    <!-- Why These Books -->
-    <section class="py-20 bg-white">
+    <!-- Why Clinicians Trust Himeros Publications -->
+    <section class="py-16 lg:py-24 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-14">
+                <span class="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-widest rounded-full mb-3">Publishing Standard</span>
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Clinicians Trust Himeros Publications</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Our books are developed with a single purpose: to empower healthcare professionals with knowledge that directly translates to better patient outcomes.</p>
+                <p class="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">Our publications are developed with a single core objective: empowering healthcare professionals with evidence-based knowledge that directly enhances patient outcomes.</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="text-center p-6 rounded-2xl bg-brand-50 border border-brand-100">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="text-center p-6 rounded-2xl bg-brand-50/60 border border-brand-100">
                     <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i data-lucide="microscope" class="w-7 h-7 text-brand-600"></i></div>
                     <h3 class="font-bold text-gray-900 mb-2">Evidence-Based</h3>
-                    <p class="text-gray-500 text-sm">Grounded in the latest clinical research and peer-reviewed literature in sexual medicine.</p>
+                    <p class="text-gray-600 text-xs leading-relaxed">Grounded in contemporary peer-reviewed clinical research and validated therapeutic protocols.</p>
                 </div>
-                <div class="text-center p-6 rounded-2xl bg-green-50 border border-green-100">
+                <div class="text-center p-6 rounded-2xl bg-green-50/60 border border-green-100">
                     <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i data-lucide="users" class="w-7 h-7 text-green-600"></i></div>
                     <h3 class="font-bold text-gray-900 mb-2">Expert Authored</h3>
-                    <p class="text-gray-500 text-sm">Written and reviewed by leading specialists in andrology, sexology, and reproductive medicine.</p>
+                    <p class="text-gray-600 text-xs leading-relaxed">Authored and reviewed by senior specialists in andrology, sexology, and reproductive medicine.</p>
                 </div>
-                <div class="text-center p-6 rounded-2xl bg-purple-50 border border-purple-100">
+                <div class="text-center p-6 rounded-2xl bg-purple-50/60 border border-purple-100">
                     <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i data-lucide="stethoscope" class="w-7 h-7 text-purple-600"></i></div>
                     <h3 class="font-bold text-gray-900 mb-2">Clinically Practical</h3>
-                    <p class="text-gray-500 text-sm">Structured for direct clinical application — from patient assessment to treatment planning.</p>
+                    <p class="text-gray-600 text-xs leading-relaxed">Structured specifically for direct clinical application — from patient intake to treatment monitoring.</p>
                 </div>
-                <div class="text-center p-6 rounded-2xl bg-yellow-50 border border-yellow-100">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i data-lucide="star" class="w-7 h-7 text-yellow-600"></i></div>
-                    <h3 class="font-bold text-gray-900 mb-2">Highly Rated</h3>
-                    <p class="text-gray-500 text-sm">Trusted and recommended by clinicians across India — available on Amazon with top ratings.</p>
+                <div class="text-center p-6 rounded-2xl bg-amber-50/60 border border-amber-100">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i data-lucide="star" class="w-7 h-7 text-amber-600"></i></div>
+                    <h3 class="font-bold text-gray-900 mb-2">Highly Recommended</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Trusted across medical academies and clinical practices — available for professional distribution.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="bg-gradient-to-r from-brand-800 to-green-800 py-16">
-        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-brand-900 via-brand-800 to-green-900 py-16 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Explore Our Complete Product Portfolio</h2>
-            <p class="text-blue-100 mb-8 text-lg">Along with clinical books, Himeros Pharma offers a comprehensive range of science-backed pharmaceutical formulations.</p>
-            <a href="products.html" class="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-8 py-3.5 rounded-full hover:bg-green-50 transition-all shadow-lg hover:shadow-xl">
-                <i data-lucide="package" class="w-5 h-5"></i> View Products
-            </a>
+            <p class="text-blue-100 mb-8 text-base md:text-lg max-w-2xl mx-auto">Along with clinical publications, Himeros Pharma offers an extensive range of specialized pharmaceutical formulations across Andrology, Gynecology, and Nephrology.</p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="products.html" class="inline-flex items-center gap-2 bg-white text-brand-900 font-bold px-8 py-3.5 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all shadow-lg hover:shadow-xl text-sm">
+                    <i data-lucide="package" class="w-5 h-5"></i> View Products
+                </a>
+                <a href="contact.html" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white font-bold px-8 py-3.5 rounded-full border border-white/20 hover:bg-white/20 transition-all text-sm">
+                    <i data-lucide="mail" class="w-5 h-5"></i> Contact Publisher
+                </a>
+            </div>
         </div>
     </section>
 
@@ -336,8 +379,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="footer-logo-wrap mb-5">
-                        <img src="items/Hiimeros Pharma white logo.png"
-                            alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
+                        <img src="items/Hiimeros Pharma white logo.png" alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
                     </div>
                     <p class="text-gray-300 text-sm leading-relaxed mb-6">Transforming pharmaceutical science into meaningful healthcare solutions.</p>
                     <div class="flex gap-3">
@@ -355,35 +397,21 @@
                 <div>
                     <h4 class="font-bold text-white mb-5 tracking-wider text-sm">QUICK LINKS</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Home</a></li>
-                        <li><a href="about.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">About Us</a></li>
-                        <li><a href="products.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Products</a></li>
-                        <li><a href="blog.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Blog</a></li>
-                        <li><a href="gallery.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Gallery</a></li>
-                        <li><a href="career.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Career</a></li>
-                        <li><a href="contact.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Contact Us</a>
-                        </li>
+                        <li><a href="index.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Products</a></li>
+                        <li><a href="blog.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Blog</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="career.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Career</a></li>
+                        <li><a href="contact.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-white mb-5 tracking-wider text-sm">SEGMENTS</h4>
                     <ul class="space-y-3">
-                        <li><a href="segment-andrology.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Andrology /
-                                Sexology</a></li>
-                        <li><a href="segment-nephrology.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Nephrology /
-                                Urology</a></li>
-                        <li><a href="segment-gynecology.html"
-                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">IVF /
-                                Gynecology</a></li>
+                        <li><a href="segment-andrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Andrology / Sexology</a></li>
+                        <li><a href="segment-nephrology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">Nephrology / Urology</a></li>
+                        <li><a href="segment-gynecology.html" class="text-gray-300 text-sm hover:text-green-400 transition-colors">IVF / Gynecology</a></li>
                     </ul>
                 </div>
                 <div>
@@ -411,11 +439,120 @@
         </div>
     </footer>
 
+    <!-- Back to top button -->
     <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-700 z-50">
         <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
+    <!-- Book Details Quick View Modal -->
+    <div id="bookModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none modal-overlay">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl modal-container scale-95 border border-gray-100 flex flex-col relative">
+            <button id="closeModal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-800 flex items-center justify-center z-20 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="p-6 lg:p-8 flex flex-col md:flex-row gap-8 items-start" id="modalContent">
+                <!-- Content dynamically populated by script -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
+        // Data for Quick View Modal
+        const booksData = {
+            "book-1": {
+                title: "Handbook of Sexual Medicine",
+                edition: "Second Edition",
+                publisher: "Tulika Collections",
+                badge: "2nd Edition",
+                badgeClass: "bg-amber-400 text-amber-950",
+                image: "items/sexual medicine.png",
+                bgClass: "from-slate-900 via-brand-900 to-blue-950",
+                tags: ["Sexual Medicine", "Clinical Reference"],
+                description: "Handbook of Sexual Medicine is a comprehensive clinical reference covering the fundamentals of human sexual physiology and the complexities of sexual pathology. It explores sexual response in men and women, male and female sexual dysfunctions, and conditions such as hypoactive sexual desire disorder (HSDD), erectile dysfunction, premature and delayed ejaculation, dyspareunia, vaginismus, and other sexual concerns. The book also examines psychological, biological, relationship, and situational factors contributing to sexual dysfunction. With its structured approach, it serves as an indispensable clinical roadmap.",
+                audience: "Clinicians, Andrologists, Sexologists, Gynecologists, General Practitioners",
+                highlights: [
+                    "Structured diagnostic approach for sexual dysfunctions",
+                    "Biological, psychological, and relational factor analysis",
+                    "Updated 2nd Edition clinical practice guidelines"
+                ],
+                enquirySubject: "Book Inquiry - Handbook of Sexual Medicine"
+            },
+            "book-2": {
+                title: "Sex Therapy: A Clinician's Guide",
+                edition: "First Edition",
+                publisher: "Tulika Collections",
+                badge: "1st Edition",
+                badgeClass: "bg-emerald-400 text-emerald-950",
+                image: "items/sex tharapy.png",
+                bgClass: "from-emerald-950 via-green-900 to-teal-950",
+                tags: ["Sex Therapy", "Clinician's Guide"],
+                description: "Sex Therapy: A Clinician's Guide serves as a practical, structured resource for practitioners navigating sexual health interventions. Beginning with foundational concepts and clinical practice guidelines—including techniques like sensate focus—the book systematically addresses specific male and female sexual dysfunctions, such as erectile dysfunction, premature ejaculation, vaginismus, and arousal disorders. Beyond symptom management, it provides valuable guidance on navigating therapy obstacles, handling termination, assessing treatment outcomes, and maintaining ethical standards in practice.",
+                audience: "Sex Therapists, Psychologists, Counselors, Psychiatrists, Healthcare Providers",
+                highlights: [
+                    "Step-by-step Sensate Focus & Behavioral Protocols",
+                    "Treatment outcome assessment frameworks",
+                    "Navigating therapy obstacles, ethics, and termination"
+                ],
+                enquirySubject: "Book Inquiry - Sex Therapy Clinicians Guide"
+            },
+            "book-3": {
+                title: "Making Sense",
+                edition: "Relationship Guide",
+                publisher: "Tulika Collections",
+                badge: "Popular Guide",
+                badgeClass: "bg-sky-400 text-sky-950",
+                image: "items/making sense.jpeg",
+                bgClass: "from-blue-950 via-indigo-900 to-slate-900",
+                tags: ["Relationships", "Practical Guide"],
+                description: "Making Sense is a thoughtful and practical guide that addresses the questions, doubts, and everyday dilemmas couples may face before and during the early stages of marriage. It explores topics around the body, intimacy, sexual expectations, communication, relationships, and the realities of adjusting to life with a partner. By bringing often-unspoken concerns into an open and approachable conversation, the book helps couples understand themselves and each other better, moving beyond myths and confusion towards a healthier, more comfortable, and fulfilling relationship.",
+                audience: "Newlyweds, Couples, Relationship Counselors, General Readers",
+                highlights: [
+                    "De-bunking common sexual & relationship myths",
+                    "Practical guidance for effective intimacy communication",
+                    "Empathetic framework for pre-marital & early marriage transition"
+                ],
+                enquirySubject: "Book Inquiry - Making Sense"
+            },
+            "book-4": {
+                title: "Sexual Facets of Medical Practice",
+                edition: "Medical Reference",
+                publisher: "Tulika Collections",
+                badge: "Must Read",
+                badgeClass: "bg-indigo-400 text-indigo-950",
+                image: "items/Sexual Facets of Medical Practice.jpeg",
+                bgClass: "from-indigo-950 via-slate-900 to-purple-950",
+                tags: ["Medical Reference", "Clinical Specialty"],
+                description: "Sexual Facets of Medical Practice is a comprehensive medical reference that explores the relationship between sexual health and a wide range of medical conditions. The book examines sexual dysfunction across cardiovascular, respiratory, neurological, urological, gynecological, endocrine, psychiatric, dermatological and other conditions, while also addressing sexuality in ageing, cancer, diabetes, fertility, sexually transmitted infections and treatment-related sexual dysfunction.",
+                audience: "Multi-specialty Physicians, Urologists, Gynecologists, Cardiologists, Endocrinologists",
+                highlights: [
+                    "Multi-system analysis: Cardiac, Endocrine, Neuro & Sexual Health",
+                    "Management of drug-induced & illness-related sexual dysfunction",
+                    "Holistic patient care integration across medical disciplines"
+                ],
+                enquirySubject: "Book Inquiry - Sexual Facets of Medical Practice"
+            },
+            "book-5": {
+                title: "Clinical Methods in Sexual Medicine",
+                edition: "Clinical Manual",
+                publisher: "Tulika Collections",
+                badge: "40 Case Scenarios",
+                badgeClass: "bg-teal-300 text-teal-950",
+                image: "items/clinical methods in sexual medicine.jpeg",
+                bgClass: "from-teal-950 via-emerald-900 to-slate-950",
+                tags: ["Clinical Manual", "Practical Guide"],
+                description: "Bridging the gap between theoretical knowledge and clinical practice, Clinical Methods in Sexual Medicine is the first comprehensive manual dedicated to the practical art of the Sexual Health consultation. Designed for both seasoned practitioners and clinicians-in-training, this text provides a structured, evidence-based roadmap for navigating the complexities of Sexual Dysfunctions with professional precision and empathy. A distinctive feature of this volume is the inclusion of 40 carefully curated case scenarios.",
+                audience: "Resident Doctors, Clinicians in Training, Sexologists, Medical Educators",
+                highlights: [
+                    "40 Virtual Clinic real-world case scenarios",
+                    "Consultation protocols and history-taking frameworks",
+                    "Practical diagnostic decision trees for sexual disorders"
+                ],
+                enquirySubject: "Book Inquiry - Clinical Methods in Sexual Medicine"
+            }
+        };
+
+        // Mobile Menu Functionality
         const menuToggle = document.getElementById('menuToggle');
         const menuClose = document.getElementById('menuClose');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -427,9 +564,97 @@
         menuOverlay.addEventListener('click', closeMenu);
         document.querySelectorAll('.mobile-nav-link').forEach(l=>l.addEventListener('click',closeMenu));
 
+        // Back to top
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => { if (window.scrollY > 600) { backToTop.style.opacity='1'; backToTop.style.pointerEvents='auto'; } else { backToTop.style.opacity='0'; backToTop.style.pointerEvents='none'; } });
         backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+        // Filter Pills
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const bookCards = document.querySelectorAll('.book-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.getAttribute('data-filter');
+                bookCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Quick View Modal Handlers
+        const bookModal = document.getElementById('bookModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openModal(bookKey) {
+            const data = booksData[bookKey];
+            if (!data) return;
+
+            const tagsHtml = data.tags.map(t => `<span class="badge bg-brand-100 text-brand-700">${t}</span>`).join(' ');
+            const highlightsHtml = data.highlights.map(h => `<li class="flex items-start gap-2 text-xs md:text-sm text-gray-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><span>${h}</span></li>`).join('');
+
+            modalContent.innerHTML = `
+                <div class="w-full md:w-5/12 bg-gradient-to-br ${data.bgClass} p-8 rounded-2xl flex items-center justify-center relative overflow-hidden book-cover-container self-stretch min-h-[260px]">
+                    <div class="absolute top-3 right-3 ${data.badgeClass} text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-md z-10">${data.badge}</div>
+                    <img src="${data.image}" alt="${data.title}" class="book-3d-img h-56 w-auto object-contain relative z-10">
+                </div>
+                <div class="w-full md:w-7/12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">${tagsHtml}</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-1 leading-tight">${data.title}</h3>
+                        <p class="text-xs font-semibold text-brand-600 mb-4">By ${data.publisher} · ${data.edition}</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">${data.description}</p>
+                        
+                        <div class="mb-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                            <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Key Highlights</h4>
+                            <ul class="space-y-2">${highlightsHtml}</ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Target Audience</h4>
+                            <p class="text-xs text-gray-500">${data.audience}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <a href="product-enquiry.html?subject=${encodeURIComponent(data.enquirySubject)}" class="flex-1 py-3 px-6 bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i> Request / Inquire Book Copy
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            bookModal.classList.remove('opacity-0', 'pointer-events-none');
+            bookModal.querySelector('.modal-container').classList.remove('scale-95');
+            bookModal.querySelector('.modal-container').classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => lucide.createIcons(), 50);
+        }
+
+        function hideModal() {
+            bookModal.classList.add('opacity-0', 'pointer-events-none');
+            bookModal.querySelector('.modal-container').classList.remove('scale-100');
+            bookModal.querySelector('.modal-container').classList.add('scale-95');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.btn-open-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const bookKey = btn.getAttribute('data-book');
+                openModal(bookKey);
+            });
+        });
+
+        closeModal.addEventListener('click', hideModal);
+        bookModal.addEventListener('click', (e) => {
+            if (e.target === bookModal) hideModal();
+        });
 
         setTimeout(()=>lucide.createIcons(), 200);
 
