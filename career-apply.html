@@ -188,7 +188,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <a href="index.html" class="flex items-center flex-shrink-0">
-                    <img src="items/Himeros%20pharma%20for%20website.png"
+                    <img src="assets/brand/himeros-pharma-for-website.png"
                         alt="Himeros Pharma Logo" class="h-16 lg:h-20 w-auto object-contain">
                 </a>
                 <div class="hidden md:flex items-center gap-8">
@@ -220,7 +220,7 @@
     <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white z-50 shadow-2xl">
         <div class="p-6">
             <div class="flex justify-between items-center mb-8">
-                <img src="items/Himeros%20pharma%20for%20website.png"
+                <img src="assets/brand/himeros-pharma-for-website.png"
                     alt="Himeros Pharma Logo" class="h-14 w-auto object-contain">
                 <button id="menuClose"
                     onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow='';"
@@ -282,6 +282,7 @@
                 </div>
 
                 <form id="talentForm" class="space-y-10" novalidate>
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
                     <!-- Section: Personal Details -->
                     <fieldset>
@@ -535,7 +536,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="footer-logo-wrap mb-5">
-                        <img src="items/Hiimeros Pharma white logo.png"
+                        <img src="assets/brand/himeros-white-logo.png"
                             alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
                     </div>
                     <p class="text-gray-300 text-sm leading-relaxed mb-6">Transforming pharmaceutical science into meaningful healthcare solutions.</p>
@@ -723,8 +724,10 @@
             // Re-render lucide icons after the row template clone
             lucide.createIcons();
 
-            // Submit handler — collect, validate, and (since this is a static site)
-            // package the data into a mailto: link. Replace with your real endpoint when ready.
+            // Submit handler — FormSubmit emails the application (CV attached), and the
+            // same data is stored for the private dashboard (dashboard.html).
+            // First-ever submission: FormSubmit sends a one-time activation email — click it.
+            var FORM_EMAIL = 'joshihemant3@gmail.com';
             var form = document.getElementById('talentForm');
             var success = document.getElementById('formSuccess');
 
@@ -734,6 +737,16 @@
                 // Browser-side required validation (HTML5)
                 if (!form.checkValidity()) {
                     form.reportValidity();
+                    return;
+                }
+
+                var honeypot = form.querySelector('[name="_honey"]');
+                if (honeypot && honeypot.value) { return; } // bot — drop silently
+
+                var cvInput = document.getElementById('cvUpload');
+                var cvFile = cvInput.files && cvInput.files[0];
+                if (cvFile && cvFile.size > 5 * 1024 * 1024) {
+                    alert('CV must be 5 MB or smaller. Please upload a smaller file.');
                     return;
                 }
 
@@ -750,7 +763,8 @@
                     }
                 });
 
-                var data = {
+                var fullName = form.firstName.value.trim() + ' ' + form.lastName.value.trim();
+                var record = {
                     firstName: form.firstName.value.trim(),
                     lastName: form.lastName.value.trim(),
                     mobile: form.mobile.value.trim(),
@@ -759,42 +773,60 @@
                     qualification: form.qualification.value,
                     university: form.university.value.trim(),
                     totalWorkEx: form.totalWorkEx.value,
+                    workExperience: workExLines.join('\n'),
                     noticePeriod: form.noticePeriod.value,
                     currentCtc: form.currentCtc.value,
                     location1: form.locationPref1.value,
                     location2: form.locationPref2.value,
                     location3: form.locationPref3.value,
-                    relocate: (form.querySelector('input[name="relocate"]:checked') || {}).value || ''
+                    relocate: (form.querySelector('input[name="relocate"]:checked') || {}).value || '',
+                    cvFileName: cvFile ? cvFile.name : '(no CV)'
                 };
 
-                var body =
-                    'Name: ' + data.firstName + ' ' + data.lastName + '\n' +
-                    'Mobile: ' + data.mobile + '\n' +
-                    'Email: ' + data.email + '\n' +
-                    'Permanent Address: ' + data.address + '\n\n' +
-                    'Highest Qualification: ' + data.qualification + '\n' +
-                    'University: ' + data.university + '\n\n' +
-                    'Total Work Experience: ' + data.totalWorkEx + ' months\n' +
-                    'Work Experience:\n' + (workExLines.length ? workExLines.join('\n') : '- (none)') + '\n\n' +
-                    'Notice Period: ' + data.noticePeriod + '\n' +
-                    'Current CTC: ' + data.currentCtc + ' LPA\n\n' +
-                    'Location Preferences:\n' +
-                    '  1. ' + (data.location1 || '-') + '\n' +
-                    '  2. ' + (data.location2 || '-') + '\n' +
-                    '  3. ' + (data.location3 || '-') + '\n\n' +
-                    'Ready to Relocate: ' + data.relocate + '\n';
+                // FormSubmit payload: multipart so the CV travels as an attachment
+                var fd = new FormData();
+                Object.keys(record).forEach(function (k) {
+                    if (k !== 'cvFileName') { fd.append(k, record[k]); }
+                });
+                fd.append('_subject', 'New Career Application — ' + fullName);
+                fd.append('_template', 'table');
+                fd.append('_captcha', 'false');
+                if (cvFile) { fd.append('attachment', cvFile, cvFile.name); }
 
-                // Try opening the user's mail client with a prefilled email.
-                // (Static-site fallback. Replace this block with a real POST to your
-                // backend / Formspree / Netlify Forms endpoint when one is available.)
-                var subject = encodeURIComponent('Talent Community Application — ' + data.firstName + ' ' + data.lastName);
-                var href = 'mailto:info@himerospharma.com?subject=' + subject + '&body=' + encodeURIComponent(body);
-                window.location.href = href;
+                var btn = form.querySelector('button[type="submit"]');
+                var btnLabel = btn.innerHTML;
+                var restore = function () { btn.disabled = false; btn.innerHTML = btnLabel; lucide.createIcons(); };
 
-                // Show success state
-                success.classList.add('show');
-                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                lucide.createIcons();
+                btn.disabled = true; btn.innerHTML = 'Submitting…';
+
+                // Dashboard storage is optional (works once hosted on Vercel)
+                fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ form: 'career', data: record })
+                }).catch(function () { });
+
+                fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: fd
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (out) {
+                        if (!out || out.success !== 'true') {
+                            throw new Error((out && out.message) || 'failed');
+                        }
+                        success.classList.add('show');
+                        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        form.reset();
+                        nameEl.textContent = '';
+                        lucide.createIcons();
+                    })
+                    .catch(function (err) {
+                        alert('Submission failed — please email your application to ' + FORM_EMAIL +
+                            (err && err.message && err.message !== 'failed' ? '\n\nDetails: ' + err.message : ''));
+                    })
+                    .finally(restore);
             });
         })();
     </script>

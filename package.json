@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jaikumar05/Himeros-web#readme",
   "dependencies": {
+    "@vercel/blob": "^2.8.0",
     "jsdom": "^29.1.1",
     "lucide": "^1.27.0"
   }

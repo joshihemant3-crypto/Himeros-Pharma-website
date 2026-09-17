@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Form Dashboard — Himeros Pharma</title>
+    <script src="https://cdn.tailwindcss.com?v=2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { background: #1d4ed8; color: white; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+        th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; white-space: nowrap; }
+        td { font-size: 13px; color: #1e293b; max-width: 340px; overflow-wrap: anywhere; white-space: pre-wrap; }
+        tr:hover td { background: #f8fafc; }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+    <header class="bg-[#0b1f3a] text-white">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <img src="assets/brand/himeros-white-logo.png" alt="Himeros Pharma" class="h-12 w-auto">
+                <div>
+                    <h1 class="text-lg font-bold leading-tight">Form Dashboard</h1>
+                    <p class="text-xs text-gray-300">Contact · Product Enquiry · Career Applications</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="refreshBtn"
+                    class="inline-flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh
+                </button>
+                <button id="exportBtn"
+                    class="inline-flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors">
+                    <i data-lucide="download" class="w-4 h-4"></i> Export CSV
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Password gate -->
+        <section id="gate" class="max-w-sm mx-auto mt-20 bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Private area</h2>
+            <p class="text-sm text-gray-500 mb-5">Enter the dashboard password (set as
+                <code class="text-xs bg-gray-100 px-1 rounded">DASHBOARD_PASSWORD</code> in Vercel).</p>
+            <input id="passInput" type="password" placeholder="Dashboard password"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm mb-3">
+            <button id="passBtn"
+                class="w-full bg-gradient-to-r from-brand-600 to-green-500 text-white font-medium py-3 rounded-full hover:shadow-lg transition-all text-sm">Open
+                Dashboard</button>
+            <p id="gateMsg" class="text-sm text-red-600 mt-3 hidden"></p>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="board" class="hidden">
+            <div class="flex flex-wrap items-center gap-2 mb-6" id="tabs"></div>
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-auto">
+                <div id="tableWrap" class="min-w-full p-4"></div>
+            </div>
+            <p id="boardMsg" class="text-sm text-gray-500 mt-4"></p>
+        </section>
+    </main>
+
+    <script>
+        const TABS = [
+            { id: 'contact', label: 'Contact' },
+            { id: 'enquiry', label: 'Product Enquiry' },
+            { id: 'career', label: 'Career Applications' }
+        ];
+        let all = [];
+        let activeTab = 'contact';
+
+        const $ = (id) => document.getElementById(id);
+
+        async function load(key) {
+            $('boardMsg').textContent = 'Loading…';
+            try {
+                const res = await fetch('/api/submissions?key=' + encodeURIComponent(key));
+                const out = await res.json();
+                if (!out.ok) { throw new Error(out.error || 'Failed to load'); }
+                all = out.submissions || [];
+                renderTabs();
+                renderTable();
+                $('boardMsg').textContent = all.length + ' total submission(s). Newest first.';
+            } catch (err) {
+                $('gateMsg').textContent = err.message;
+                $('gateMsg').classList.remove('hidden');
+                sessionStorage.removeItem('dashKey');
+                $('gate').classList.remove('hidden');
+                $('board').classList.add('hidden');
+            }
+        }
+
+        function renderTabs() {
+            $('tabs').innerHTML = TABS.map(t => {
+                const n = all.filter(s => s.form === t.id).length;
+                return `<button data-tab="${t.id}" class="tab px-4 py-2 rounded-full text-sm font-medium border transition-colors ${t.id === activeTab ? 'tab-active border-transparent' : 'bg-white border-gray-200 text-gray-700 hover:border-brand-400'}">${t.label} (${n})</button>`;
+            }).join('');
+            $('tabs').querySelectorAll('button').forEach(b =>
+                b.addEventListener('click', () => { activeTab = b.dataset.tab; renderTabs(); renderTable(); }));
+        }
+
+        function rowsFor(tab) {
+            return all.filter(s => s.form === tab);
+        }
+
+        function columnsFor(tab, rows) {
+            const keys = new Set(['ts']);
+            rows.forEach(r => Object.keys(r.data || {}).forEach(k => keys.add(k)));
+            return [...keys];
+        }
+
+        function renderTable() {
+            const rows = rowsFor(activeTab);
+            if (!rows.length) {
+                $('tableWrap').innerHTML = '<p class="text-sm text-gray-500 p-4">No submissions yet for this form.</p>';
+                return;
+            }
+            const cols = columnsFor(activeTab, rows);
+            const esc = (v) => String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+            $('tableWrap').innerHTML = `<table><thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead>
+                <tbody>${rows.map(r => `<tr>${cols.map(c => `<td>${esc(c === 'ts' ? new Date(r.ts).toLocaleString() : (r.data || {})[c] || '')}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+        }
+
+        function exportCsv() {
+            const rows = rowsFor(activeTab);
+            if (!rows.length) { alert('Nothing to export for this tab.'); return; }
+            const cols = columnsFor(activeTab, rows);
+            const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+            const csv = [cols.join(','), ...rows.map(r => cols.map(c => q(c === 'ts' ? r.ts : (r.data || {})[c] || '')).join(','))].join('\n');
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+            a.download = `himeros-${activeTab}-submissions.csv`;
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        $('passBtn').addEventListener('click', () => {
+            const key = $('passInput').value;
+            if (!key) { return; }
+            $('gateMsg').classList.add('hidden');
+            sessionStorage.setItem('dashKey', key);
+            $('gate').classList.add('hidden');
+            $('board').classList.remove('hidden');
+            load(key);
+        });
+        $('passInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('passBtn').click(); });
+        $('refreshBtn').addEventListener('click', () => {
+            const key = sessionStorage.getItem('dashKey');
+            if (key) { load(key); }
+        });
+        $('exportBtn').addEventListener('click', exportCsv);
+
+        const saved = sessionStorage.getItem('dashKey');
+        if (saved) {
+            $('gate').classList.add('hidden');
+            $('board').classList.remove('hidden');
+            load(saved);
+        }
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
