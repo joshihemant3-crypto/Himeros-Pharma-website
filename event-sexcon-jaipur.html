@@ -1,0 +1,338 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEXCON - Himeros 2026 - Himeros Pharma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#2563eb',600:'#1d4ed8',700:'#1e40af',800:'#1e3a8a',900:'#172554' },
+                        green: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d' }
+                    },
+                    fontFamily: { 'inter':['Inter','sans-serif'], 'playfair':['Playfair Display','serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; overflow-x:hidden; }
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#93c5fd; border-radius:4px; }
+        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#22c55e; transition:width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
+        .mobile-menu.open { transform:translateX(0); }
+        .gallery-card { transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
+        .gallery-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.12); }
+        .gallery-img { transition: transform 0.5s ease; }
+        .gallery-card:hover .gallery-img { transform: scale(1.05); }
+        .page-transition-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;
+            pointer-events: none; background: #ffffff; opacity: 1;
+            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+        }
+        @keyframes overlayFadeOut { from { opacity: 1; } to { opacity: 0; } }
+        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay):not(#lightboxModal) {
+            animation: contentFadeIn 0.5s ease 0.3s both;
+        }
+        @keyframes contentFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        .lightbox-content { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+        .lightbox-nav-btn { transition: all 0.2s ease; }
+        .lightbox-nav-btn:hover { background-color: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <div class="page-transition-overlay" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex items-center flex-shrink-0">
+                    <img src="assets/brand/himeros-pharma-for-website.png" alt="Himeros Pharma Logo" class="h-16 lg:h-20 w-auto object-contain">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">About Us</a>
+                    <a href="segment.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Segment</a>
+                    <a href="products.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Products</a>
+                    <a href="blog.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Blog</a>
+                    <a href="books.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Books</a>
+                    <a href="gallery.html" class="nav-link relative text-sm font-medium text-brand-600 transition-colors font-semibold">Gallery</a>
+                    <a href="career.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Career</a>
+                    <a href="contact.html" class="nav-link relative text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Contact Us</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="menuToggle" onclick="document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden';" class="md:hidden p-2 text-gray-600 hover:text-brand-600 transition-colors">
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 rounded"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white z-50 shadow-2xl">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <img src="assets/brand/himeros-pharma-for-website.png" alt="Himeros Pharma Logo" class="h-14 w-auto object-contain">
+                <button id="menuClose" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow='';" class="p-2 text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="flex flex-col gap-1">
+                <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Home</a>
+                <a href="about.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">About Us</a>
+                <a href="segment.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Segment</a>
+                <a href="products.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Products</a>
+                <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Blog</a>
+                <a href="books.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Books</a>
+                <a href="gallery.html" class="mobile-nav-link px-4 py-3 text-brand-600 bg-brand-50 rounded-lg font-semibold">Gallery</a>
+                <a href="career.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Career</a>
+                <a href="contact.html" class="mobile-nav-link px-4 py-3 text-gray-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition-colors font-medium">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <div id="menuOverlay" onclick="document.getElementById('mobileMenu').classList.remove('open');this.classList.add('hidden');document.body.style.overflow='';" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Breadcrumb / Back -->
+    <section class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <a href="gallery.html" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-brand-600 transition-colors font-medium">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Gallery
+            </a>
+        </div>
+    </section>
+
+    <!-- Event Header -->
+    <section class="py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-1 h-10 bg-gradient-to-b from-brand-600 to-green-500 rounded-full"></div>
+                <span class="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-full px-4 py-1.5 text-xs font-semibold text-brand-700 uppercase tracking-wider">
+                    <i data-lucide="calendar-clock" class="w-3.5 h-3.5"></i> Event Gallery
+                </span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">SEXCON - Himeros 2026</h1>
+            <p class="text-gray-600 text-lg">20th September, 2026 &middot; Jaipur &middot; 15 photographs from the event.</p>
+        </div>
+    </section>
+
+    <!-- Photo Grid -->
+    <section class="py-12 lg:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(0)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9446.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(1)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9451.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(2)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9456.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(3)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9458.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(4)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9462.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(5)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9467.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(6)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9474.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(7)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9483.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(8)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9488.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(9)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9500.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(10)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9505.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(11)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9506.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(12)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9510.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(13)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9519.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+                    <div class="gallery-card overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100" onclick="openLightbox(14)">
+                        <img src="assets/gallery/SEXCON-Jaipur/0S9A9522.JPG" alt="SEXCON - Himeros 2026, Jaipur" class="gallery-img w-full h-56 object-cover" loading="lazy">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center" onclick="closeLightboxOnBackdrop(event)">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors z-10">
+            <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+        <button onclick="prevImage()" class="lightbox-nav-btn absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 z-10">
+            <i data-lucide="chevron-left" class="w-8 h-8"></i>
+        </button>
+        <button onclick="nextImage()" class="lightbox-nav-btn absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 z-10">
+            <i data-lucide="chevron-right" class="w-8 h-8"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="" class="lightbox-content rounded-lg shadow-2xl">
+        <div id="lightboxCounter" class="absolute top-4 left-4 text-white/80 text-sm bg-black/60 px-3 py-1 rounded-full backdrop-blur-sm"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1f3a] text-white">
+        <div class="max-w-7xl mx-auto px-4 pt-16 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="footer-logo-wrap mb-5">
+                        <img src="assets/brand/himeros-white-logo.png"
+                            alt="Himeros Pharma Logo" class="h-20 w-auto object-contain">
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">Transforming pharmaceutical science into meaningful healthcare solutions.</p>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/himeros-pharma/posts/?feedView=all" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/himerospharma?igsi=MW01NDI5emR3YmduNQ%3D%3D&utm_source=qr" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@himerospharma-n6p?si=vOHvi_RKTuSbyd07" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-brand-600 transition-colors">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">QUICK LINKS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="products.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Products</a></li>
+                        <li><a href="blog.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Blog</a></li>
+                        <li><a href="gallery.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="career.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Career</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">SEGMENTS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="segment-andrology.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Andrology /
+                                Sexology</a></li>
+                        <li><a href="segment-nephrology.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">Nephrology /
+                                Urology</a></li>
+                        <li><a href="segment-gynecology.html"
+                                class="text-gray-300 text-sm hover:text-green-400 transition-colors">IVF /
+                                Gynecology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-5 tracking-wider text-sm">CONTACT</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <span class="text-gray-300 text-sm">Himeros Pharma, India</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-green-400 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </span>
+                            <a href="mailto:info@himerospharma.com" class="text-gray-300 text-sm hover:text-green-400 transition-colors">info@himerospharma.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-400 text-sm">&copy; 2025 Himeros Pharma. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Crafted with care for healthcare professionals</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        function openMenu() { mobileMenu.classList.add('open'); menuOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { mobileMenu.classList.remove('open'); menuOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) navbar.classList.add('shadow-md');
+            else navbar.classList.remove('shadow-md');
+        });
+
+        // Lightbox
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+
+        const imageData = [
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9446.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9451.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9456.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9458.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9462.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9467.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9474.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9483.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9488.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9500.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9505.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9506.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9510.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9519.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+            { src: "assets/gallery/SEXCON-Jaipur/0S9A9522.JPG", caption: "SEXCON - Himeros 2026, Jaipur" },
+        ];
+
+        let currentIndex = 0;
+        function openLightbox(i) { currentIndex = i; updateLightbox(); lightboxModal.classList.remove('hidden'); lightboxModal.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+        function closeLightbox() { lightboxModal.classList.add('hidden'); lightboxModal.classList.remove('flex'); document.body.style.overflow = ''; }
+        function closeLightboxOnBackdrop(e) { if (e.target === lightboxModal) closeLightbox(); }
+        function updateLightbox() { lightboxImg.src = imageData[currentIndex].src; lightboxImg.alt = imageData[currentIndex].caption; lightboxCounter.textContent = (currentIndex + 1) + ' / ' + imageData.length; }
+        function nextImage() { currentIndex = (currentIndex + 1) % imageData.length; updateLightbox(); }
+        function prevImage() { currentIndex = (currentIndex - 1 + imageData.length) % imageData.length; updateLightbox(); }
+        document.addEventListener('keydown', (e) => {
+            if (lightboxModal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        setTimeout(() => lucide.createIcons(), 200);
+    </script>
+</body>
+</html>

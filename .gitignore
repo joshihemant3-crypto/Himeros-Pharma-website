@@ -6,3 +6,6 @@ Thumbs.db
 
 # editor/assistant local settings
 .claude/
+
+.vercel
+.env*
