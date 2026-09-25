@@ -51,24 +51,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
         
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
@@ -147,7 +134,7 @@
             </div>
             <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">Best Pharma Company in Women's Health Award 2024</h1>
             <div class="rounded-xl overflow-hidden mb-8">
-                <img src="https://picsum.photos/seed/news-award/500/300.jpg" alt="Women's Health Award" class="w-full h-[400px] object-cover">
+                <img src="https://picsum.photos/seed/news-award/500/300.jpg" alt="Women's Health Award" class="w-full h-[400px] object-cover" loading="lazy" decoding="async">
             </div>
             <div class="prose max-w-none text-gray-600 leading-relaxed space-y-5">
                 <p>Himeros Pharma has been recognised as the "Best Pharma Company in Women's Health" at the National Pharma Excellence Awards 2024. This prestigious honour reflects our unwavering commitment to advancing women's healthcare through innovative formulations, scientific excellence, and patient-centred care.</p>

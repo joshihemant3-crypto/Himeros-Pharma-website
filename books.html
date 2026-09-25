@@ -30,11 +30,7 @@
         .nav-link:hover::after{width:100%}
         .mobile-menu{transform:translateX(100%);transition:transform 0.3s ease}
         .mobile-menu.open{transform:translateX(0)}
-        .page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;background:#ffffff;opacity:1;animation:overlayFadeOut 0.4s ease 0.2s forwards}
-        @keyframes overlayFadeOut{from{opacity:1}to{opacity:0}}
-        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay):not(#bookModal){animation:contentFadeIn 0.5s ease 0.3s both}
-        @keyframes contentFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-        
+        .page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;background:#ffffff;opacity:0;transition:opacity .25s ease}
         .hero-bg{background:linear-gradient(135deg,#172554 0%,#1e3a8a 50%,#14532d 100%);position:relative;overflow:hidden}
         .hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
         
@@ -148,7 +144,7 @@
                 <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="clinical">
                     <div class="bg-gradient-to-br from-slate-900 via-brand-900 to-blue-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
                         <div class="absolute inset-0 bg-radial from-brand-500/10 to-transparent"></div>
-                        <img src="assets/pages/sexual-medicine-book.png" alt="Handbook of Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <img src="assets/pages/sexual-medicine-book.png" alt="Handbook of Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
@@ -172,7 +168,7 @@
                 <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="therapy">
                     <div class="bg-gradient-to-br from-emerald-950 via-green-900 to-teal-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
                         <div class="absolute inset-0 bg-radial from-emerald-500/10 to-transparent"></div>
-                        <img src="assets/pages/sex-tharapy-book.png" alt="Sex Therapy - A Clinician's Guide" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <img src="assets/pages/sex-tharapy-book.png" alt="Sex Therapy - A Clinician's Guide" class="book-3d-img h-48 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
@@ -196,7 +192,7 @@
                 <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="couples">
                     <div class="bg-gradient-to-br from-blue-950 via-indigo-900 to-slate-900 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
                         <div class="absolute inset-0 bg-radial from-blue-500/10 to-transparent"></div>
-                        <img src="assets/pages/making-sense-book.png" alt="Making Sense" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <img src="assets/pages/making-sense-book.png" alt="Making Sense" class="book-3d-img h-48 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
@@ -220,7 +216,7 @@
                 <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="clinical">
                     <div class="bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
                         <div class="absolute inset-0 bg-radial from-purple-500/10 to-transparent"></div>
-                        <img src="assets/pages/sexual-facets-book.png" alt="Sexual Facets of Medical Practice" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <img src="assets/pages/sexual-facets-book.png" alt="Sexual Facets of Medical Practice" class="book-3d-img h-48 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
@@ -244,7 +240,7 @@
                 <div class="book-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col transition-all duration-300" data-category="therapy">
                     <div class="bg-gradient-to-br from-teal-950 via-emerald-900 to-slate-950 p-6 flex items-center justify-center h-64 relative overflow-hidden book-cover-container">
                         <div class="absolute inset-0 bg-radial from-teal-500/10 to-transparent"></div>
-                        <img src="assets/pages/clinical-methods-in-sexual-medicine-book.png" alt="Clinical Methods in Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10">
+                        <img src="assets/pages/clinical-methods-in-sexual-medicine-book.png" alt="Clinical Methods in Sexual Medicine" class="book-3d-img h-48 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6 flex flex-col flex-1 bg-white">
                         <div class="flex flex-wrap gap-2 mb-3">
@@ -518,7 +514,7 @@
 
             modalContent.innerHTML = `
                 <div class="w-full md:w-5/12 bg-gradient-to-br ${data.bgClass} p-8 rounded-2xl flex items-center justify-center relative overflow-hidden book-cover-container self-stretch min-h-[260px]">
-                    <img src="${data.image}" alt="${data.title}" class="book-3d-img h-56 w-auto object-contain relative z-10">
+                    <img src="${data.image}" alt="${data.title}" class="book-3d-img h-56 w-auto object-contain relative z-10" loading="lazy" decoding="async">
                 </div>
                 <div class="w-full md:w-7/12 flex flex-col justify-between">
                     <div>

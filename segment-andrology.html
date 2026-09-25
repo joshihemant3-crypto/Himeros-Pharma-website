@@ -52,24 +52,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
         
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
@@ -153,7 +140,7 @@
                 </div>
                 <div class="relative">
                     <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="assets/segments/andrology.jpg" alt="Andrology" class="w-full h-[350px] lg:h-[400px] object-cover">
+                        <img src="assets/segments/andrology.jpg" alt="Andrology" class="w-full h-[350px] lg:h-[400px] object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900/40 to-transparent"></div>
                     </div>
                 </div>

@@ -38,10 +38,7 @@
         .filter-btn:hover{border-color:#2563eb;color:#2563eb}
         .filter-btn.active{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;border-color:transparent;box-shadow:0 4px 16px rgba(37,99,235,0.35)}
         .product-hidden{display:none!important}
-        .page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;background:#ffffff;opacity:1;animation:overlayFadeOut 0.4s ease 0.2s forwards}
-        @keyframes overlayFadeOut{from{opacity:1}to{opacity:0}}
-        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay){animation:contentFadeIn 0.5s ease 0.3s both}
-        @keyframes contentFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+        .page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;background:#ffffff;opacity:0;transition:opacity .25s ease}
         .hero-bg{background:linear-gradient(135deg,#172554 0%,#1d4ed8 50%,#14532d 100%);position:relative;overflow:hidden}
         .hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
         .stat-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;padding:1.25rem;text-align:center}
@@ -164,7 +161,7 @@
                 <!-- 1. Himract Pro -->
                 <a href="product-himract-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -179,7 +176,7 @@
                 <!-- 2. Himract Gold -->
                 <a href="product-himract-gold.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -194,7 +191,7 @@
                 <!-- 3. Himract Capsule -->
                 <a href="product-himract-capsule.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himract_nobg.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himract_nobg.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -209,7 +206,7 @@
                 <!-- 4. Androwin -->
                 <a href="product-androwin.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/androwin_nobg.png" alt="Androwin" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/androwin_nobg.png" alt="Androwin" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -224,7 +221,7 @@
                 <!-- 5. Eractlong (Erectlong) -->
                 <a href="product-erectlong.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/erectlong_nobg-2.png" alt="Eractlong" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/erectlong_nobg-2.png" alt="Eractlong" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -238,7 +235,7 @@
                 <!-- 6. Tadox 2.5 -->
                 <a href="product-tadox-2-5.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/tadox-2.5_nobg-2.png" alt="Tadox 2.5" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/tadox-2.5_nobg-2.png" alt="Tadox 2.5" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -252,7 +249,7 @@
                 <!-- 7. Tadox 5 -->
                 <a href="product-tadox-5.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 5" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 5" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -266,7 +263,7 @@
                 <!-- 8. Tadox 10 -->
                 <a href="product-tadox-10.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/tadox-10_nobg-2.png" alt="Tadox 10" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/tadox-10_nobg-2.png" alt="Tadox 10" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -280,7 +277,7 @@
                 <!-- 9. Tadox DP -->
                 <a href="product-tadox-dp.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/tadox-dp_nobg-2.png" alt="Tadox DP" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/tadox-dp_nobg-2.png" alt="Tadox DP" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -294,7 +291,7 @@
                 <!-- 10. Himract Gel -->
                 <a href="product-himract-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -309,7 +306,7 @@
                 <!-- 11. Durahim Gel -->
                 <a href="product-durahim-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -323,7 +320,7 @@
                 <!-- 12. Durahim 30 -->
                 <a href="product-durahim-30.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/durahim-30_nobg-2.png" alt="Durahim 30" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/durahim-30_nobg-2.png" alt="Durahim 30" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -337,7 +334,7 @@
                 <!-- 13. Durahim 60 -->
                 <a href="product-durahim-60.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/durahim_nobg.png" alt="Durahim 60" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/durahim_nobg.png" alt="Durahim 60" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -351,7 +348,7 @@
                 <!-- 14. Librt Capsule -->
                 <a href="product-librt-tablet.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Capsule" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Capsule" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -366,7 +363,7 @@
                 <!-- 15. Librt Pro -->
                 <a href="product-librt-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -381,7 +378,7 @@
                 <!-- 16. Himdrol -->
                 <a href="product-himdriol.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himdriol_nobg-2.png" alt="Himdrol" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himdriol_nobg-2.png" alt="Himdrol" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -395,7 +392,7 @@
                 <!-- 17. Pro KD-45 -->
                 <a href="product-prokd-45.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/prokd-45_nobg.png" alt="Pro KD-45" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/prokd-45_nobg.png" alt="Pro KD-45" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -409,7 +406,7 @@
                 <!-- 18. Pro KD-15 -->
                 <a href="product-prokd-15.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/prokd-15_nobg.png" alt="Pro KD-15" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/prokd-15_nobg.png" alt="Pro KD-15" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -423,7 +420,7 @@
                 <!-- 19. Alpha-KD DS -->
                 <a href="product-alpha-kd-ds.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/alpha-kd-ds_nobg-2.png" alt="Alpha-KD DS" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/alpha-kd-ds_nobg-2.png" alt="Alpha-KD DS" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -437,7 +434,7 @@
                 <!-- 20. Alpha-KD -->
                 <a href="product-alpha-kd.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/alpha-kd_nobg-2.png" alt="Alpha-KD" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/alpha-kd_nobg-2.png" alt="Alpha-KD" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -451,7 +448,7 @@
                 <!-- 21. HIMTAM-D -->
                 <a href="product-himtam-d.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/himtam-d_nobg-2.png" alt="HIMTAM-D" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/himtam-d_nobg-2.png" alt="HIMTAM-D" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -465,7 +462,7 @@
                 <!-- 22. Acytron Forte -->
                 <a href="product-acytron-forte.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/acytron-forte_nobg-2.png" alt="Acytron Forte" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/acytron-forte_nobg-2.png" alt="Acytron Forte" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -479,7 +476,7 @@
                 <!-- 23. Acytron KD -->
                 <a href="product-acytron-kd.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/acytron-kd_nobg-2.png" alt="Acytron KD" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/acytron-kd_nobg-2.png" alt="Acytron KD" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -493,7 +490,7 @@
                 <!-- 24. Stoxlate -->
                 <a href="product-stoxlate.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/stoxlate_nobg.png" alt="Stoxlate" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/stoxlate_nobg.png" alt="Stoxlate" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -507,7 +504,7 @@
                 <!-- 25. Rekover -->
                 <a href="product-rekover.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/rekover_nobg.png" alt="Rekover" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/rekover_nobg.png" alt="Rekover" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -521,7 +518,7 @@
                 <!-- 26. CurePCOS-M -->
                 <a href="product-curepcos.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/curepcos_nobg.png" alt="CurePCOS-M" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/curepcos_nobg.png" alt="CurePCOS-M" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -535,7 +532,7 @@
                 <!-- 27. Foliguard -->
                 <a href="product-foliguard.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/foliguard_nobg-2.png" alt="Foliguard" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/foliguard_nobg-2.png" alt="Foliguard" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -549,7 +546,7 @@
                 <!-- 28. Embryoshield -->
                 <a href="product-embry-s.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                     <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                        <img src="assets/products/embry-s_nobg.png" alt="Embryoshield" class="prod-img h-full w-full object-contain">
+                        <img src="assets/products/embry-s_nobg.png" alt="Embryoshield" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="p-5">
                         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -577,7 +574,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-himract-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -590,7 +587,7 @@
                         </a>
                         <a href="product-himract-gold.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -603,7 +600,7 @@
                         </a>
                         <a href="product-himract-capsule.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -616,7 +613,7 @@
                         </a>
                         <a href="product-himract-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -629,7 +626,7 @@
                         </a>
                         <a href="product-durahim-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -642,7 +639,7 @@
                         </a>
                         <a href="product-tadox-2-5.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/tadox-2.5_nobg-2.png" alt="Tadox 2.5" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/tadox-2.5_nobg-2.png" alt="Tadox 2.5" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -655,7 +652,7 @@
                         </a>
                         <a href="product-tadox-5.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 10" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 10" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -677,7 +674,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-erectlong.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/erectlong_nobg-2.png" alt="Erectlong" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/erectlong_nobg-2.png" alt="Erectlong" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -690,7 +687,7 @@
                         </a>
                         <a href="product-himract-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -703,7 +700,7 @@
                         </a>
                         <a href="product-himract-gold.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -716,7 +713,7 @@
                         </a>
                         <a href="product-tadox-dp.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/tadox-dp_nobg-2.png" alt="Tadox DP" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/tadox-dp_nobg-2.png" alt="Tadox DP" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -729,7 +726,7 @@
                         </a>
                         <a href="product-durahim-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/durahim-gel_nobg-2.png" alt="Durahim Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -742,7 +739,7 @@
                         </a>
                         <a href="product-durahim-30.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/durahim-30_nobg-2.png" alt="Durahim 30/60" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/durahim-30_nobg-2.png" alt="Durahim 30/60" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -755,7 +752,7 @@
                         </a>
                         <a href="product-librt-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -768,7 +765,7 @@
                         </a>
                         <a href="product-librt-tablet.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -790,7 +787,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-himract-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -803,7 +800,7 @@
                         </a>
                         <a href="product-himract-gold.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -816,7 +813,7 @@
                         </a>
                         <a href="product-himract-capsule.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Capsule" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -829,7 +826,7 @@
                         </a>
                         <a href="product-librt-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -842,7 +839,7 @@
                         </a>
                         <a href="product-librt-tablet.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-brand-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -864,7 +861,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-androwin.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-teal-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/androwin_nobg.png" alt="Androwin" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/androwin_nobg.png" alt="Androwin" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -877,7 +874,7 @@
                         </a>
                         <a href="product-himract-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-96 bg-gradient-to-br from-teal-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -899,7 +896,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-himdriol.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-purple-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himdriol_nobg-2.png" alt="Himdriol" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himdriol_nobg-2.png" alt="Himdriol" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -929,7 +926,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-prokd-15.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-green-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/prokd-15_nobg.png" alt="ProKD" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/prokd-15_nobg.png" alt="ProKD" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -942,7 +939,7 @@
                         </a>
                         <a href="product-alpha-kd.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-green-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/alpha-kd_nobg-2.png" alt="Alpha KD" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/alpha-kd_nobg-2.png" alt="Alpha KD" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -964,7 +961,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-acytron-forte.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-teal-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/acytron-forte_nobg-2.png" alt="Acytron Forte" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/acytron-forte_nobg-2.png" alt="Acytron Forte" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -977,7 +974,7 @@
                         </a>
                         <a href="product-acytron-kd.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-teal-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/acytron-kd_nobg-2.png" alt="Acytron KD" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/acytron-kd_nobg-2.png" alt="Acytron KD" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -999,7 +996,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-himtam-d.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-cyan-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himtam-d_nobg-2.png" alt="Himtam-D" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himtam-d_nobg-2.png" alt="Himtam-D" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1012,7 +1009,7 @@
                         </a>
                         <a href="product-tadox-5.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-cyan-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 5" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/tadox-5_nobg-2.png" alt="Tadox 5" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1034,7 +1031,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-stoxlate.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-emerald-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/stoxlate_nobg.png" alt="Stoxlate" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/stoxlate_nobg.png" alt="Stoxlate" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1056,7 +1053,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-rekover.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-lime-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/rekover_nobg.png" alt="Rekover" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/rekover_nobg.png" alt="Rekover" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1086,7 +1083,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-foliguard.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-pink-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/foliguard_nobg-2.png" alt="Foliguard" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/foliguard_nobg-2.png" alt="Foliguard" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1099,7 +1096,7 @@
                         </a>
                         <a href="product-himract-gel.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-pink-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/himract-gel_nobg-2.png" alt="Himract Gel" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1112,7 +1109,7 @@
                         </a>
                         <a href="product-librt-pro.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-pink-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-pro_nobg-2.png" alt="Librt Pro" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1125,7 +1122,7 @@
                         </a>
                         <a href="product-librt-tablet.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-pink-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/librt-capsule_nobg-2.png" alt="Librt Tablet" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1147,7 +1144,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-curepcos.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-rose-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/curepcos_nobg.png" alt="CurePCOSM" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/curepcos_nobg.png" alt="CurePCOSM" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">
@@ -1169,7 +1166,7 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <a href="product-embry-s.html" class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
                             <div class="h-72 bg-gradient-to-br from-fuchsia-50 to-white flex items-center justify-center overflow-hidden p-4">
-                                <img src="assets/products/embry-s_nobg.png" alt="Embryoshield" class="prod-img h-full w-full object-contain">
+                                <img src="assets/products/embry-s_nobg.png" alt="Embryoshield" class="prod-img h-full w-full object-contain" loading="lazy" decoding="async">
                             </div>
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1.5 mb-3">

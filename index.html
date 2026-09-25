@@ -278,36 +278,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
-        @keyframes overlayFadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-            }
-        }
-
-        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-
-        @keyframes contentFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+        </style>
 </head>
 
 <body class="bg-white text-gray-800">
@@ -572,7 +547,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-1.jpg" alt="Patient-Focused Healthcare Impact" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-1.jpg" alt="Patient-Focused Healthcare Impact" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 02 / 04</div>
@@ -581,7 +556,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-2.jpg" alt="Scientific Excellence & Medical Trust" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-2.jpg" alt="Scientific Excellence & Medical Trust" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="globe" class="w-3.5 h-3.5"></i> 03 / 04</div>
@@ -590,7 +565,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-4.jpg" alt="Accessible Specialty Care" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-4.jpg" alt="Accessible Specialty Care" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i> 04 / 04</div>
@@ -686,7 +661,7 @@
                 <div
                     class="segment-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group cursor-pointer">
                     <div class="segment-img relative h-56 overflow-hidden"><img src="assets/segments/andrology.jpg"
-                            alt="Andrology" class="w-full h-full object-cover">
+                            alt="Andrology" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-transparent">
                         </div>
                         <div class="absolute bottom-4 left-5"><span
@@ -703,7 +678,7 @@
                 <div
                     class="segment-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group cursor-pointer">
                     <div class="segment-img relative h-56 overflow-hidden"><img src="assets/segments/nephrology-2.jpg" alt="Nephrology"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent">
                         </div>
                         <div class="absolute bottom-4 left-5"><span
@@ -720,7 +695,7 @@
                 <div
                     class="segment-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group cursor-pointer">
                     <div class="segment-img relative h-56 overflow-hidden"><img src="assets/segments/gynecology.jpg"
-                            alt="Gynecology" class="w-full h-full object-cover">
+                            alt="Gynecology" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-transparent">
                         </div>
                         <div class="absolute bottom-4 left-5"><span
@@ -759,7 +734,7 @@
                     class="product-card bg-gradient-to-br from-brand-50 to-white rounded-2xl p-6 border border-brand-100 cursor-pointer block">
                     <div class="w-full h-72 bg-white rounded-xl flex items-center justify-center mb-5 overflow-hidden">
                         <img src="assets/products/himract-pro_nobg-2.png" alt="Himract Pro"
-                            class="h-full object-contain rounded-lg">
+                            class="h-full object-contain rounded-lg" loading="lazy" decoding="async">
                     </div>
                     <div
                         class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-[10px] font-semibold uppercase tracking-wider rounded-full mb-3">
@@ -770,7 +745,7 @@
                 <a href="product-himract-gold.html"
                     class="product-card bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-6 border border-yellow-100 cursor-pointer block">
                     <div class="w-full h-72 bg-white rounded-xl flex items-center justify-center mb-5 overflow-hidden">
-                        <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="h-full object-contain rounded-lg">
+                        <img src="assets/products/himract-gold-med_nobg.png" alt="Himract Gold" class="h-full object-contain rounded-lg" loading="lazy" decoding="async">
                     </div>
                     <div
                         class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-[10px] font-semibold uppercase tracking-wider rounded-full mb-3">
@@ -781,7 +756,7 @@
                 <a href="product-himract-capsule.html"
                     class="product-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 cursor-pointer block">
                     <div class="w-full h-72 bg-white rounded-xl flex items-center justify-center mb-5 overflow-hidden">
-                        <img src="assets/products/himract_nobg.png" alt="Himract Capsule" class="h-full object-contain rounded-lg">
+                        <img src="assets/products/himract_nobg.png" alt="Himract Capsule" class="h-full object-contain rounded-lg" loading="lazy" decoding="async">
                     </div>
                     <div
                         class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-[10px] font-semibold uppercase tracking-wider rounded-full mb-3">
@@ -792,7 +767,7 @@
                 <a href="product-androwin.html"
                     class="product-card bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 border border-pink-100 cursor-pointer block">
                     <div class="w-full h-72 bg-white rounded-xl flex items-center justify-center mb-5 overflow-hidden">
-                        <img src="assets/products/androwin_nobg.png" alt="Androwin" class="h-full object-contain rounded-lg">
+                        <img src="assets/products/androwin_nobg.png" alt="Androwin" class="h-full object-contain rounded-lg" loading="lazy" decoding="async">
                     </div>
                     <div
                         class="inline-block px-3 py-1 bg-pink-100 text-pink-700 text-[10px] font-semibold uppercase tracking-wider rounded-full mb-3">
@@ -873,7 +848,7 @@
                     <article>
                         <div class="rounded-xl overflow-hidden mb-4"><img
                                 src="assets/blog/blog-1.png" alt="Male Infertility"
-                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
+                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
                         </div>
                         <div class="flex items-center gap-3 mb-3"><span
                                 class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Men's Health</span><span
@@ -886,7 +861,7 @@
                     <article>
                         <div class="rounded-xl overflow-hidden mb-4"><img
                                 src="assets/blog/blog-2.png" alt="Low Libido"
-                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
+                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
                         </div>
                         <div class="flex items-center gap-3 mb-3"><span
                                 class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Wellness</span><span
@@ -899,7 +874,7 @@
                     <article>
                         <div class="rounded-xl overflow-hidden mb-4"><img
                                 src="assets/blog/blog-3.png" alt="Kidney Nutrition"
-                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
+                                class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
                         </div>
                         <div class="flex items-center gap-3 mb-3"><span
                                 class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Nutrition</span><span
@@ -1093,6 +1068,12 @@
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             scrollObserver.observe(el);
         });
+        // Fail-safe: never leave content hidden if the observer fails to fire
+        // (animations disabled / slow or flaky mobile browsers)
+        setTimeout(function () {
+            scrollElements.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        }, 2000);
+
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {

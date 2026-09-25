@@ -50,21 +50,9 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* Author card */
         .author-card {
             background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
@@ -264,8 +252,7 @@
                     src="assets/blog/dr-venkata-ramana.jpg"
                     alt="Dr. G. Venkata Ramana"
                     class="author-photo mx-auto md:mx-0"
-                    onerror="this.src='assets/blog/dr-venkata-ramana.png'"
-                >
+                    onerror="this.src='assets/blog/dr-venkata-ramana.png'" loading="lazy" decoding="async">
                 <div class="flex-1">
                     <div class="inline-block bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Expert Contributor</div>
                     <h2 class="text-xl font-bold text-gray-900 mb-1">DR. G. Venkata Ramana</h2>

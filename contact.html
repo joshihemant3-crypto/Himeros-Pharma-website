@@ -191,36 +191,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
-        @keyframes overlayFadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-            }
-        }
-
-        body>*:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-
-        @keyframes contentFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+        </style>
 </head>
 
 <body class="bg-white text-gray-800">
@@ -572,6 +547,12 @@
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             scrollObserver.observe(el);
         });
+        // Fail-safe: never leave content hidden if the observer fails to fire
+        // (animations disabled / slow or flaky mobile browsers)
+        setTimeout(function () {
+            scrollElements.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        }, 2000);
+
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {

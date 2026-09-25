@@ -85,24 +85,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
         
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
@@ -181,7 +168,7 @@
                 <!-- Andrology -->
                 <div class="segment-card bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
                     <div class="segment-img relative h-72 overflow-hidden">
-                        <img src="assets/segments/andrology.jpg" alt="Andrology" class="w-full h-full object-cover">
+                        <img src="assets/segments/andrology.jpg" alt="Andrology" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-white/40 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-800 uppercase tracking-wider">
@@ -200,7 +187,7 @@
                 <!-- Nephrology -->
                 <div class="segment-card bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
                     <div class="segment-img relative h-72 overflow-hidden">
-                        <img src="assets/segments/nephrology-2.jpg" alt="Nephrology" class="w-full h-full object-cover">
+                        <img src="assets/segments/nephrology-2.jpg" alt="Nephrology" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-white/40 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-800 uppercase tracking-wider">
@@ -219,7 +206,7 @@
                 <!-- Gynecology -->
                 <div class="segment-card bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
                     <div class="segment-img relative h-72 overflow-hidden">
-                        <img src="assets/segments/gynecology.jpg" alt="Gynecology" class="w-full h-full object-cover">
+                        <img src="assets/segments/gynecology.jpg" alt="Gynecology" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-white/40 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-800 uppercase tracking-wider">
@@ -373,6 +360,12 @@
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             scrollObserver.observe(el);
         });
+        // Fail-safe: never leave content hidden if the observer fails to fire
+        // (animations disabled / slow or flaky mobile browsers)
+        setTimeout(function () {
+            scrollElements.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        }, 2000);
+
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {

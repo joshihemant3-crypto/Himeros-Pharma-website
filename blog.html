@@ -85,24 +85,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
         
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
@@ -170,11 +157,11 @@
                 <div><div class="inline-flex items-center gap-2 mb-4"><div class="w-8 h-0.5 bg-brand-500"></div><span class="text-xs font-semibold text-brand-600 uppercase tracking-widest">Latest Updates</span></div><h2 class="text-3xl lg:text-4xl font-bold text-gray-900">Blog & Insights</h2></div>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="blog-male-infertility.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-1.png" alt="Male Infertility" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Men's Health</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Male Infertility: Early Signs Men Should Not Ignore</h4><p class="text-sm text-gray-500 line-clamp-2">Recognizing the subtle early warning signs of male infertility—from changes in sexual function to hormonal imbalances—before starting a family.</p></article></a>
-                <a href="blog-low-libido.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-2.png" alt="Low Libido" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Wellness</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Understanding Low Libido in Men &amp; Women: The Hidden Culprits and How to Reclaim Your Spark</h4><p class="text-sm text-gray-500 line-clamp-2">A look at how hormonal shifts, hidden health conditions, and lifestyle factors quietly shape desire—and what you can do about it.</p></article></a>
-                <a href="blog-kidney-nutrition.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-3.png" alt="Kidney Nutrition" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Nutrition</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">The Role of Nutrition in Kidney Disease Management: Fueling Cellular Longevity</h4><p class="text-sm text-gray-500 line-clamp-2">How targeted medical nutrition therapy—protein control, mineral balance, and plant-dominant eating—can slow CKD progression and protect long-term vitality.</p></article></a>
-                <a href="blog-nutritional-supplements.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4" style="height:208px;"><img src="assets/blog/nutritional-supplements-and-sexual-dysfunctions.png" alt="Nutritional Supplements and Sexual Dysfunctions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Sexual Medicine</span><span class="text-xs text-gray-400">Aug 2026</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Nutritional Supplements and Sexual Dysfunctions</h4><p class="text-sm text-gray-500 line-clamp-2">Prof. Dr. G. Venkata Ramana examines the clinical evidence behind nutritional supplements in sexual medicine—from L-arginine to Ashwagandha—and what truly matters for patient care.</p></article></a>
-                <a href="blog-ed-heart-marker.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4" style="height:208px;"><img src="assets/blog/erectile-dysfunction-a-marker-for-heart-problems.png" alt="Erectile Dysfunction: A Marker for Heart Problems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full">Cardiology &amp; Sexual Health</span><span class="text-xs text-gray-400">Aug 2026</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Erectile Dysfunction: A Marker for Heart Problems</h4><p class="text-sm text-gray-500 line-clamp-2">Dr. D. Narayana Reddy explains how ED serves as an early cardiovascular warning signal—and why treating it is a preventive health care strategy, not a luxury.</p></article></a>
+                <a href="blog-male-infertility.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-1.png" alt="Male Infertility" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Men's Health</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Male Infertility: Early Signs Men Should Not Ignore</h4><p class="text-sm text-gray-500 line-clamp-2">Recognizing the subtle early warning signs of male infertility—from changes in sexual function to hormonal imbalances—before starting a family.</p></article></a>
+                <a href="blog-low-libido.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-2.png" alt="Low Libido" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Wellness</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Understanding Low Libido in Men &amp; Women: The Hidden Culprits and How to Reclaim Your Spark</h4><p class="text-sm text-gray-500 line-clamp-2">A look at how hormonal shifts, hidden health conditions, and lifestyle factors quietly shape desire—and what you can do about it.</p></article></a>
+                <a href="blog-kidney-nutrition.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4"><img src="assets/blog/blog-3.png" alt="Kidney Nutrition" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Nutrition</span><span class="text-xs text-gray-400">Jan 15, 2025</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">The Role of Nutrition in Kidney Disease Management: Fueling Cellular Longevity</h4><p class="text-sm text-gray-500 line-clamp-2">How targeted medical nutrition therapy—protein control, mineral balance, and plant-dominant eating—can slow CKD progression and protect long-term vitality.</p></article></a>
+                <a href="blog-nutritional-supplements.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4" style="height:208px;"><img src="assets/blog/nutritional-supplements-and-sexual-dysfunctions.png" alt="Nutritional Supplements and Sexual Dysfunctions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Sexual Medicine</span><span class="text-xs text-gray-400">Aug 2026</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Nutritional Supplements and Sexual Dysfunctions</h4><p class="text-sm text-gray-500 line-clamp-2">Prof. Dr. G. Venkata Ramana examines the clinical evidence behind nutritional supplements in sexual medicine—from L-arginine to Ashwagandha—and what truly matters for patient care.</p></article></a>
+                <a href="blog-ed-heart-marker.html" class="group"><article><div class="rounded-xl overflow-hidden mb-4" style="height:208px;"><img src="assets/blog/erectile-dysfunction-a-marker-for-heart-problems.png" alt="Erectile Dysfunction: A Marker for Heart Problems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"></div><div class="flex items-center gap-3 mb-3"><span class="text-xs font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full">Cardiology &amp; Sexual Health</span><span class="text-xs text-gray-400">Aug 2026</span></div><h4 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2">Erectile Dysfunction: A Marker for Heart Problems</h4><p class="text-sm text-gray-500 line-clamp-2">Dr. D. Narayana Reddy explains how ED serves as an early cardiovascular warning signal—and why treating it is a preventive health care strategy, not a luxury.</p></article></a>
             </div>
         </div>
     </section>
@@ -357,6 +344,12 @@
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             scrollObserver.observe(el);
         });
+        // Fail-safe: never leave content hidden if the observer fails to fire
+        // (animations disabled / slow or flaky mobile browsers)
+        setTimeout(function () {
+            scrollElements.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        }, 2000);
+
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {

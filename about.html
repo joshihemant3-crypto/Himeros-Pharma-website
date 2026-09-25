@@ -85,24 +85,11 @@
             z-index: 9999;
             pointer-events: none;
             background: #ffffff;
-            opacity: 1;
-            animation: overlayFadeOut 0.4s ease 0.2s forwards;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
         
-        @keyframes overlayFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        body > *:not(.page-transition-overlay):not(nav):not(#mobileMenu):not(#menuOverlay) {
-            animation: contentFadeIn 0.5s ease 0.3s both;
-        }
-        
-        @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-gray-800">
     <script>if(sessionStorage.getItem("loggedIn")==="true"){document.documentElement.setAttribute("data-auth","in")}else{document.documentElement.setAttribute("data-auth","out")}</script>
@@ -179,7 +166,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-1.jpg" alt="Patient-Focused Healthcare Impact" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-1.jpg" alt="Patient-Focused Healthcare Impact" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 02 / 04</div>
@@ -188,7 +175,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-2.jpg" alt="Scientific Excellence & Medical Trust" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-2.jpg" alt="Scientific Excellence & Medical Trust" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="globe" class="w-3.5 h-3.5"></i> 03 / 04</div>
@@ -197,7 +184,7 @@
                             </div>
                         </div>
                         <div class="about-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                            <img src="assets/pages/pharm-3.jpg" alt="Accessible Specialty Care" class="w-full h-full object-cover">
+                            <img src="assets/pages/pharm-3.jpg" alt="Accessible Specialty Care" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/10 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 text-white">
                                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-3"><i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i> 04 / 04</div>
@@ -302,7 +289,7 @@
                     <i data-lucide="quote" class="absolute top-8 left-8 w-16 h-16 text-gray-100 -z-10"></i>
                     <div class="space-y-6 text-gray-700 leading-relaxed relative z-10">
                         <img src="assets/pages/ceo-image.jpg" alt="Hemant Joshi - CEO, Himeros Pharma"
-                            class="ceo-letter-img float-right w-44 h-56 sm:w-56 sm:h-72 lg:w-64 lg:h-80 object-cover rounded-xl shadow-xl border-4 border-white mb-6 ml-6">
+                            class="ceo-letter-img float-right w-44 h-56 sm:w-56 sm:h-72 lg:w-64 lg:h-80 object-cover rounded-xl shadow-xl border-4 border-white mb-6 ml-6" loading="lazy" decoding="async">
                         <p>At Himeros Pharma, we believe healthcare is more than the development of medicines—it is a commitment to improving lives, restoring confidence, and creating lasting value for patients and healthcare professionals alike.</p>
                         <p>From the beginning, our vision has been to build a specialty pharmaceutical organization driven by scientific excellence, uncompromising quality, and meaningful innovation. Every formulation we develop is guided by a simple principle: to address real clinical challenges with solutions that make a measurable difference in patient outcomes.</p>
                         <p>Our focus on andrology, nephrology, gynaecology, and reproductive health reflects our dedication to therapeutic areas where patients often require long-term support, trust, and continuity of care. We understand that behind every prescription is a patient seeking hope, relief, and a better quality of life. This responsibility inspires us to maintain the highest standards across research, manufacturing, and medical engagement.</p>
@@ -312,7 +299,7 @@
                     </div>
                     <div class="mt-8 pt-8 border-t border-gray-100 flex items-center gap-4">
                         <div class="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border-2 border-brand-100 bg-brand-50">
-                            <img src="assets/pages/ceo-image.jpg" alt="Hemant Joshi" class="w-full h-full object-cover">
+                            <img src="assets/pages/ceo-image.jpg" alt="Hemant Joshi" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         </div>
                         <div>
                             <p class="text-sm font-medium text-gray-500 mb-1">Warm Regards,</p>
@@ -333,14 +320,14 @@
                     <i data-lucide="quote" class="absolute top-8 left-8 w-16 h-16 text-gray-100 -z-10"></i>
                     <div class="space-y-6 text-gray-700 leading-relaxed relative z-10">
                         <img src="assets/pages/mahesh-joshi.jpg" alt="Mahesh Joshi - CFO, Himeros Pharma"
-                            class="float-right w-[132px] h-[168px] sm:w-[168px] sm:h-[216px] lg:w-[192px] lg:h-[240px] object-cover rounded-xl shadow-xl border-4 border-white mb-6 ml-6">
+                            class="float-right w-[132px] h-[168px] sm:w-[168px] sm:h-[216px] lg:w-[192px] lg:h-[240px] object-cover rounded-xl shadow-xl border-4 border-white mb-6 ml-6" loading="lazy" decoding="async">
                         <p>As we move forward, our focus remains on building a stronger, more sustainable pharmaceutical business through responsible growth, financial discipline, and operational excellence. Every decision we make is guided by our commitment to quality, innovation, compliance, and long-term value creation.</p>
                         <p>I would also like to express my sincere appreciation to our CEO for his exceptional leadership, clear vision, and unwavering commitment to excellence. His ability to inspire people, embrace new opportunities, and lead with purpose continues to motivate the entire organization. His vision serves as a guiding force and inspires us to think bigger, perform better, and remain committed to our long-term goals.</p>
                         <p>I sincerely appreciate the dedication of our employees, partners, and stakeholders. Together, with strong leadership and a shared vision, we will overcome challenges, unlock new opportunities, and create meaningful, sustainable value for all our stakeholders.</p>
                     </div>
                     <div class="mt-8 pt-8 border-t border-gray-100 flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border-2 border-brand-100 bg-brand-50">
-                            <img src="assets/pages/mahesh-joshi.jpg" alt="Mahesh Joshi" class="w-full h-full object-cover">
+                            <img src="assets/pages/mahesh-joshi.jpg" alt="Mahesh Joshi" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         </div>
                         <div>
                             <p class="text-sm font-medium text-gray-500 mb-1">Warm Regards,</p>
@@ -531,6 +518,12 @@
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             scrollObserver.observe(el);
         });
+        // Fail-safe: never leave content hidden if the observer fails to fire
+        // (animations disabled / slow or flaky mobile browsers)
+        setTimeout(function () {
+            scrollElements.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        }, 2000);
+
 
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
