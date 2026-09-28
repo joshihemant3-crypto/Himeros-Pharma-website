@@ -11,7 +11,7 @@ import http.server
 import os
 import re
 
-PORT = 8000
+PORT = 8010
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MIME = {
