@@ -52,6 +52,10 @@
         /* Modal Styles */
         .modal-overlay{transition:opacity 0.3s ease;}
         .modal-container{transition:transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;}
+    
+        /* Logo pop — one-time per session (class added by JS; fail-safe: no hidden state) */
+        @keyframes logoPop { 0% { transform: scale(0.2); } 55% { transform: scale(1.15); } 75% { transform: scale(0.95); } 100% { transform: scale(1); } }
+        .logo-pop { animation: logoPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s 1 backwards; transform-origin: left center; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -588,6 +592,22 @@
                     else{window.location.href=href;}
                 });
             });
+        })();
+    </script>
+
+    <script>
+        // Logo pop: play once per browser session on the first page view.
+        // Fail-safe: JS adds the class only when the logo is loaded; if anything
+        // fails, the logo simply renders normally (never hidden).
+        (function () {
+            try {
+                if (sessionStorage.getItem('logoPopped')) return;
+                sessionStorage.setItem('logoPopped', '1');
+                var img = document.querySelector('nav img');
+                if (!img) return;
+                var pop = function () { img.classList.add('logo-pop'); };
+                if (img.complete) { pop(); } else { img.addEventListener('load', pop); }
+            } catch (e) { }
         })();
     </script>
 </body>
